@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="70sp"
+        android:background="#FFEB3B">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:text="@string/age_calculator"
+                android:textSize="30sp"
+                android:textFontWeight="@integer/material_motion_duration_long_2"
+                android:textColor="@color/white"
+                android:padding="12dp"
+                />
+
+            <ImageButton
+                android:id="@+id/website_link"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="#FFEB3B"
+                android:layout_height="wrap_content"
+                android:src="@drawable/website"
+                android:scaleType="fitEnd"
+                android:padding="12dp"
+                android:contentDescription="@string/todo" />
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="50sp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Birthday"
+            android:textSize="25sp"
+            android:paddingBottom="0sp"
+            android:paddingTop="10sp"
+            android:paddingLeft="10sp"
+            android:textColor="#FFEB3B"
+            />
+
+        <EditText
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5sp"
+            android:hint="DD/MM/YYYY"
+            android:textAlignment="center"
+            android:editable="false"
+            android:background="@drawable/border"
+            android:textSize="20sp"
+            tools:ignore="Deprecated" />
+
+        <TextView
+            android:id="@+id/btn_calculate"
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:background="@drawable/button"
+            android:layout_marginTop="50sp"
+            android:text="Calculate"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:textFontWeight="@integer/material_motion_duration_long_2"
+            android:textColor="@color/white"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35sp"
+                android:text="Result"
+                android:textSize="30sp"
+                android:layout_marginTop="20sp"
+                android:textColor="@color/teal_700"
+                android:textAlignment="center"
+                android:background="#FFEB3B"
+
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35sp"
+                android:orientation="horizontal"
+                android:background="#FFEB3B"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30sp"
+                    android:layout_weight="1"
+                    android:text="Year"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_700"
+                    android:layout_marginTop="4sp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30sp"
+                    android:layout_weight="1"
+                    android:text="Month"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_700"
+                    android:layout_marginTop="4sp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30sp"
+                    android:layout_weight="1"
+                    android:text="Day"
+                    android:textSize="20sp"
+                    android:layout_marginTop="4sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_700"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35sp"
+                android:orientation="horizontal"
+                android:background="#FFEB3B"
+                >
+
+                <TextView
+                    android:id="@+id/year"
+                    android:layout_width="0dp"
+                    android:layout_height="30sp"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textColor="#3F51B5"
+                    />
+
+                <TextView
+                    android:id="@+id/month"
+                    android:layout_width="0dp"
+                    android:layout_height="30sp"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textColor="#3F51B5"
+                    />
+
+                <TextView
+                    android:id="@+id/day"
+                    android:layout_width="0dp"
+                    android:layout_height="30sp"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textColor="#3F51B5"
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20sp"
+            android:padding="10sp"
+            android:background="#FFEB3B"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Extras"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="@color/teal_700"
+                android:layout_marginTop="20sp"
+                android:background="#FFEB3B"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Total Months: "
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:background="#FFEB3B"
+                    android:textColor="@color/purple_700"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:background="#FFEB3B"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_700"
+                    android:id="@+id/in_months"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="In Weeks: "
+                    android:textSize="20sp"
+                    android:background="#FFEB3B"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_700"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:background="#FFEB3B"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_700"
+                    android:id="@+id/in_weeks"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="In Days: "
+                    android:textSize="20sp"
+                    android:background="#FFEB3B"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_700"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:background="#FFEB3B"
+                    android:textColor="@color/purple_700"
+                    android:id="@+id/in_days"
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
