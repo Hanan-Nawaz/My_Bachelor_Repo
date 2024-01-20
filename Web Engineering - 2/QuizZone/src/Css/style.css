@@ -1,0 +1,198 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(27, 27, 27);
+}
+
+
+.typewriter {
+  margin-top: 50px;
+}
+
+.typewriter h4 {
+  color: blue;
+  overflow: hidden;
+  border-right: 5px solid blue;
+  font-size: 30px;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 1px;
+  animation:
+    typing 7s steps(50, end) infinite,
+    blink-caret .5s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 310px
+  }
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: blue
+  }
+}
+
+.about {
+  background-image: url('../assets/about-us.jpg');
+  background-size: cover;
+}
+
+.about .text {
+  padding: 150px;
+  padding-left: 40px;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Dashboard CSS */
+
+body {
+  background-color: #fbfbfb;
+}
+
+
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 58px 0 0;
+  /* Height of navbar */
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+  width: 240px;
+  z-index: 600;
+}
+
+.bodydashboard {
+  margin-top: 100px;
+  margin-left: 250px;
+}
+
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .bodydashboard {
+    margin-left: 0px;
+  }
+}
+
+.sidebar .active {
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Scrollable contents if viewport is shorter than content. */
+}
+
+.site-footer {
+  background-color: #fbfbfb;
+  margin-top: auto;
+  width: 100%;
+  height: 24px;
+  font-size: 15px;
+  line-height: 24px;
+  color: black;
+  text-align: center;
+}
+
+.site-footer a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.error {
+  animation: error-dashboard 1s infinite;
+}
+
+@keyframes error-dashboard {
+  0% {
+    color: red;
+  }
+  25% {
+    color: blue;
+  }
+  50% {
+    color: black;
+  }
+  75% {
+    color: green;
+  }
+  100% {
+    color: yellow;
+  }
+}
+
+.granted {
+  background-color: rgb(65, 5, 5);
+  width: 150px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 75px;
+  text-align: center;
+  padding: 50px 0;
+  color: goldenrod;
+  font-weight: bolder;
+  transform: rotate(-45deg);
+  font-size: 30px;
+}
+
+.card {
+  border-color: rgb(211, 209, 209);
+  border-radius: 2%;
+}
+
+.card:hover {
+  border-color: blue;
+  cursor: pointer;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%230000FF' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%230000FF' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.userdash {
+  display: none;
+}
