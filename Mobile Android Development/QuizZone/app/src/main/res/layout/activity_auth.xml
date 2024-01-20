@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/AuthActivity"
+    android:background="@color/primary"
+    tools:context=".Activities.SignInSignUp.AuthActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1.8"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textSize="70sp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/app_name"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/border"
+        android:id="@+id/parentRelative"
+        android:padding="25dp"
+        android:paddingTop="50dp"
+        >
+
+        <androidx.fragment.app.FragmentContainerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/fragment_viewer"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

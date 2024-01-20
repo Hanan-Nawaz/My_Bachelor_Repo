@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Fragments.MainFragments.AddTopic"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@color/white"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:id="@+id/EditProfile"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/quizzone" />
+
+            <LinearLayout
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/circular"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/add"
+                    android:id="@+id/btnChoose"
+                    android:scaleType="center"
+                    />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical"
+        android:layout_marginRight="20dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Topic Name"
+            android:textColor="#a6a6a6"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:paddingLeft="5dp"
+            tools:ignore="ExtraText"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="Topic Name Here"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            tools:ignore="ExtraText"
+            android:paddingLeft="5dp"
+            android:id="@+id/addTopicET"
+            android:background="@drawable/edittext_profile"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical"
+        android:layout_marginRight="20dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Email"
+            android:textColor="#a6a6a6"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:paddingLeft="5dp"
+            tools:ignore="ExtraText"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            tools:ignore="ExtraText"
+            android:enabled="false"
+            android:paddingLeft="5dp"
+            android:id="@+id/addTopicEmail"
+            android:background="@drawable/edittext_profile"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical"
+        android:layout_marginRight="20dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Adder Name"
+            android:textColor="#a6a6a6"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:paddingLeft="5dp"
+            tools:ignore="ExtraText"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            tools:ignore="ExtraText"
+            android:enabled="false"
+            android:paddingLeft="5dp"
+            android:id="@+id/addTopicName"
+            android:background="@drawable/edittext_profile"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edittext_profile"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Category"
+            android:textColor="#a6a6a6"
+            android:textSize="20sp"
+            android:paddingTop="10dp"
+            android:paddingLeft="5dp"
+            tools:ignore="ExtraText"
+            />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:paddingLeft="5dp"
+            android:id="@+id/addTopicNiche"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Save"
+            android:textSize="30sp"
+            android:id="@+id/addTopicBtn"
+            android:textColor="@color/white"
+            android:background="@drawable/button"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

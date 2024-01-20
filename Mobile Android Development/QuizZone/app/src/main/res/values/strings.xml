@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">QuizZone</string>
+    <string name="login_with">SignIn with </string>
+    <string name="email">Email </string>
+    <string name="have_an_account">Already have an Account? </string>
+    <string name="login">Login</string>
+    <string name="not_have_an_account"> Do not have an Account?</string>
+    <string name="signup">Signup</string>
+    <string name="signup_with">Signup with</string>
+    <string name="SignIn">SignIn</string>
+    <string name="SignUpWithEmail">SignUp With Email</string>
+    <string name="EnterPassword">Enter Password</string>
+    <string name="EnterEmail">Enter Email</string>
+    <string name="SignInWithEmail">SignIn With Email</string>
+    <string name="Back">Back</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_profile">Profile</string>
+    <string name="Users">Total Users</string>
+    <string name="TestTaken">Total Test Taken</string>
+    <string name="WelcomeBack">Welcome Back!</string>
+    <string name="Subjects">Total Subjects</string>
+    <string name="logout">Logout</string>
+    <string name="MobileNumber">Mobile Number</string>
+    <string name="ID">ID</string>
+    <string name="Name">Name</string>
+    <string name="Occupation">Occupation</string>
+    <string name="Password">Password</string>
+    <string name="Role">Role</string>
+    <string name="Status">Status</string>
+    <string name="Email">Email</string>
+    <string name="save">Save</string>
+    <string name="add_topic">Add Topic</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="view_topics">View Topics</string>
+    <string name="stats">Stats</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="cancel">Cancel</string>
+
+</resources>
