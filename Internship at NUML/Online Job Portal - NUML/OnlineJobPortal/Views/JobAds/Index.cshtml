@@ -1,0 +1,117 @@
+﻿@model IEnumerable<OnlineJobPortal.Models.JobAds>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.job_title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_scale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_advertisment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_employment_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_application_deadline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_date_posted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_application_instructions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_job_processing_fee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_processing_fee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job_current_stage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_department)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_scale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_advertisment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_employment_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_application_deadline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_date_posted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_application_instructions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_job_processing_fee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_processing_fee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_current_stage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.job_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.job_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.job_id })
+        </td>
+    </tr>
+}
+
+</table>

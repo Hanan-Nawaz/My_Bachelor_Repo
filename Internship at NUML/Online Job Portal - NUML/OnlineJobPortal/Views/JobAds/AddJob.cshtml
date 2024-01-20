@@ -1,0 +1,336 @@
+﻿@model  OnlineJobPortal.ViewModel.JobVM
+
+@{
+    ViewBag.Title = "Add Jobs";
+}
+
+@{
+    var jobfee = new List<SelectListItem>
+{
+ new SelectListItem { Value = "0", Text = "No" },
+ new SelectListItem { Value = "1", Text = "Yes" },
+        // Add more items as needed
+    };
+    var jobScales = new List<SelectListItem>
+{
+                   new SelectListItem { Value = "Bps-1", Text = "Bps-1" },
+                   new SelectListItem { Value = "Bps-2", Text = "Bps-2" },
+                   new SelectListItem { Value = "Bps-3", Text = "Bps-3" },
+                   new SelectListItem { Value = "Bps-4", Text = "Bps-4" },
+                   // Add more items as needed
+               };
+    var jobstatus = new List<SelectListItem>
+{
+ new SelectListItem { Value = "0", Text = "Closed" },
+ new SelectListItem { Value = "1", Text = "Open" },
+ // Add more items as needed
+};
+    var jobstage = new List<SelectListItem>
+               {
+                        new SelectListItem { Value = "0", Text = "Published Stage" },
+                        new SelectListItem { Value = "1", Text = "Test Conducting Stage" },
+                        new SelectListItem { Value = "1", Text = "Interview Stage" },
+                        new SelectListItem { Value = "1", Text = "Hired" },
+                        // Add more items as needed
+                       };
+    var jobemptype = new List<SelectListItem>
+{
+          new SelectListItem { Value = "Part Time", Text = "Part Time" },
+          new SelectListItem { Value = "Full Time", Text = "Full Time" },
+          // Add more items as needed
+         };
+
+    var joblocation = new List<SelectListItem>
+{
+                     new SelectListItem { Value = "0", Text = "Islamabad" },
+                     new SelectListItem { Value = "1", Text = "Karachi" },
+                     // Add more items as needed
+                };
+
+    var jobtype = new List<SelectListItem>
+         {
+                     new SelectListItem { Value = "Contract", Text = "Contract" },
+                     new SelectListItem { Value = "Visting", Text = "Visting" },
+                     new SelectListItem { Value = "Regular", Text = "Regular" },
+                     // Add more items as needed
+                    };
+}
+
+
+@using(Html.BeginForm("AddJob", "JobAds", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="card card-info mt-2">
+            <div class="card-header" style="background-color: deepskyblue;">
+                <h3 class="card-title">Add Jobs</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Title :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_title, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobAds.job_title, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Department/Specilization :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_department, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobAds.job_department, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Description :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_description, "", new { @class = "text-danger" })
+                    @Html.TextAreaFor(m => m.jobAds.job_description, new { @class = "form-control", rows = 4 })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Type :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_type, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(x => x.jobAds.job_type, jobtype, "Select Job Type", new { @class = "form-control", id = "jobTypeDropdown" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Location/Campus :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_location, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(x => x.jobAds.job_location, joblocation, "Select Job Loaction", new { @class = "form-control" })
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Employment Type :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_employment_type, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(x => x.jobAds.job_employment_type, jobemptype, "Select Job Employment Type", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Application Deadline :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_application_deadline, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobAds.job_application_deadline, new { type = "date", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Application Instructions :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_application_instructions, "", new { @class = "text-danger" })
+                    @Html.TextAreaFor(m => m.jobAds.job_application_instructions, new { @class = "form-control", rows = 4 })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Status :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_status, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(x => x.jobAds.job_status, jobstatus, "Select Job Status", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Date Posted :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_date_posted, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobAds.job_date_posted, "{0:yyyy-MM-dd}", new { @class = "form-control", @readonly = "readonly", id = "jobDatePosted" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Application Current Stage :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_current_stage, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(x => x.jobAds.job_current_stage, jobstage, "Select Job Current Stage", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Advertisment :</label> <br />
+                    @Html.ValidationMessageFor(m => m.jobAds.job_advertisment, "", new { @class = "text-danger" })
+                    <input name="file" type="file" accept=".pdf" class = "input-file"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Processing Fee Applicable :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.is_job_processing_fee, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(x => x.jobAds.is_job_processing_fee, jobfee, "Select Job Processing Fee Applicable", new { @class = "form-control", id = "isJobProcessingFeeDropdown" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Scale :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_scale, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(x => x.jobAds.job_scale, jobScales, "Select Job Scale", new { @class = "form-control", id = "jobScaleDropdown" })
+                </div>
+            </div>
+            <div id="jobProcessingFeeSection" class="col-md-6" style="display:none;">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Job Processing Fee :</label>
+                    @Html.ValidationMessageFor(m => m.jobAds.job_processing_fee, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobAds.job_processing_fee, new { type = "text", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary site-btn flat-buttons">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Added All Jobs</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive" style="padding: 0px;">
+        <table id="experiencInfo" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Department/Specilization</th>
+                    <th>Job Type</th>
+                    <th>Application Deadline</th>
+                    <th>Job Location/Campus</th>
+                    <th>Application Status</th>
+                    <th>Job Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.existingAds)
+                {
+                    <tr>
+                        <td>@item.job_title</td>
+                        <td>@item.job_department</td>
+                        <td>@item.job_type</td>
+                        <td>@item.job_application_deadline</td>
+                        <td>@item.job_location</td>
+                        <td>@item.job_current_stage</td>
+                        <td>@item.job_status</td>
+                        <td>
+                            @Html.ActionLink(" ", "View", new { Controller = "JobAds", id = item.job_id }, new { @class = "fa fa-eye" })
+                            @Html.ActionLink(" ", "Edit", new { Controller = "JobAds", id = item.job_id }, new { @class = "fa fa-pencil" })
+                            @using (Html.BeginForm("DeleteConfirmed", "JobAds", new { id = item.job_id }, FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to delete this item?');" }))
+                            {
+                                <button type="submit" class="fa fa-trash text-danger" style="background: none; border: none;"></button>
+                                @Html.AntiForgeryToken()
+                            }
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var today = new Date().toISOString().slice(0, 10);
+
+        // Set today's date to the job_date_posted field
+        $('#jobDatePosted').val(today);
+        var jobScaleFeeSection = $('#jobScaleDropdown').closest('.form-group');
+        var jobProcessingFeeSection = $('#jobProcessingFeeSection');
+
+        // Initially hide the "Job Scale Fee" and "Job Processing Fee" sections
+        jobScaleFeeSection.hide();
+        jobProcessingFeeSection.hide();
+
+        // Handle change event of job type dropdown
+        $('#jobTypeDropdown').change(function () {
+            var selectedJobType = $(this).val();
+            // Rest of your code for job type selection
+            // ...
+
+            // Show/hide Job Scale Fee based on job type selection
+            if (selectedJobType === "Regular") {
+                jobScaleFeeSection.show();
+            } else {
+                jobScaleFeeSection.hide();
+            }
+        });
+
+        // Handle change event of is_job_processing_fee dropdown
+        $('#isJobProcessingFeeDropdown').change(function () {
+            var isJobProcessingFee = $(this).val();
+
+            // Check if job processing fee is set to "Yes"
+            if (isJobProcessingFee === "1") {
+                // Show the Job Processing Fee section
+                jobProcessingFeeSection.show();
+            } else {
+                // Hide the Job Processing Fee section
+                jobProcessingFeeSection.hide();
+            }
+        });
+
+        var jobScaleFeeSection = $('#jobScaleDropdown').closest('.form-group');
+
+        // Initially hide the "Job Scale Fee" section
+        jobScaleFeeSection.hide();
+
+        // Handle change event of job type dropdown
+        $('#jobTypeDropdown').change(function () {
+            var selectedJobType = $(this).val();
+
+            // Check if the selected job type is "Regular"
+            if (selectedJobType === "Regular") {
+                // Show the "Job Scale Fee" section
+                jobScaleFeeSection.show();
+            } else {
+                // Hide the "Job Scale Fee" section for other job types
+                jobScaleFeeSection.hide();
+            }
+        });
+    });
+</script>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

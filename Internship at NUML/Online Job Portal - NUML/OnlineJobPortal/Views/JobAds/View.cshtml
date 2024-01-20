@@ -1,0 +1,143 @@
+@model OnlineJobPortal.Models.JobAds
+
+@{
+    ViewBag.Title = "View Job";
+}
+
+
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card card-info mt-2">
+        <div class="card-header" style="background-color: deepskyblue;">
+            <h3 class="card-title">View Job</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Title :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.job_title, new { @style = "color:black;" })
+        </div>
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Department/Specilization :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.job_department, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Description :</label>
+        </div>
+        <div class="col-md-9" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.job_description, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Type :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.is_job_processing_fee, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Location/Campus :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.job_location, new { @style = "color:black;" })
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Employment Type :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.job_employment_type, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Application Deadline :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.job_application_deadline, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Application Instructions :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.job_application_instructions, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Status :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.job_status, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Date Posted :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.job_date_posted, new { @style = "color:black;" })
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Application Current Stage :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.job_current_stage, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Advertisment :</label> <br />
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            <a href="@Model.job_advertisment">@Model.job_advertisment</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Processing Fee Applicable :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.is_job_processing_fee, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Scale :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.job_scale, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Job Processing Fee :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.job_processing_fee, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    
+</div>
+
+
+
