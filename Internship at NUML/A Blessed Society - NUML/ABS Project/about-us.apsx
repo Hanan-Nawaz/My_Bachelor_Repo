@@ -1,0 +1,223 @@
+<%@ Page Title="" Language="C#" MasterPageFile="~/absmain.Master" AutoEventWireup="true" CodeBehind="about-us.aspx.cs" Inherits="ABS_Project.about_us" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <title>About Us &#8211; ABS</title>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <section class="main-title-section-wrapper breadcrumb-left">
+                    <div class="main-title-section-bg" style='background-image: url(wp-content/uploads/2021/05/pattern.jpg); background-position: left top; background-size: auto; background-repeat: no-repeat; background-attachment: fixed; background-color:#f9f9f9;'></div>
+                    <div class="container">
+                        <div class="main-title-section">
+                            <h1 style="font-family: Roboto;">About Us</h1>
+                        </div>
+                        <div class="breadcrumb">
+                            <a href="abs.aspx">Home  </a>
+                            <span class="current"> << About Us</span>
+                        </div>
+                    </div>
+                </section>
+                <!-- ** Breadcrumb End ** -->
+            <!-- ** Header Wrapper - End ** -->
+            <!-- **Main** -->
+            <div id="main">
+
+                <!-- ** Container ** -->
+                <div class="container">
+                    <!-- Primary -->
+                    <section id="primary" class="content-full-width">
+                        <!-- #post-228 -->
+                        <div id="post-228" class="post-228 page type-page status-publish hentry">
+                            <div class="vc_row wpb_row vc_row-fluid vc_row-o-equal-height vc_row-flex">
+                                <div class="wpb_column vc_column_container vc_col-sm-12">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                            <div id="1512545111455-7f072856-28db" class="dt-sc-empty-space"></div>
+                                            <div class="dt-sc-title with-image dt-sc-online-learning-title">
+                                                <h2>A Humble Contribution</h2><span><img width="19" height="43" alt="onliine-learning-title-img" data-src="wp-content/uploads/2018/05/onliine-learning-title-img.png" class="attachment-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img width="19" height="43" alt="onliine-learning-title-img" data-src="wp-content/uploads/2018/05/onliine-learning-title-img.png" class="attachment-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img width="19" height="43" src="wp-content/uploads/2018/05/onliine-learning-title-img.png" class="attachment-full" alt="onliine-learning-title-img" /></noscript></noscript></span>
+                                                <h6>The greatest service to other people is not just to share your riches but to reveal to them their own.Welcome to your own discovery of yourself!</h6>
+                                            </div>
+                                            <div id="1527248651419-23d6697c-39b0" class="dt-sc-empty-space"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_column vc_column_container vc_col-sm-6">
+                                    <div class="vc_column-inner vc_custom_1528195265713">
+                                        <div class="wpb_wrapper">
+                                            <img width="1200" height="770" alt="" data-srcset="wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3.jpg 1200w, wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3-500x321.jpg 500w, wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3-300x193.jpg 300w, wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3-1024x657.jpg 1024w, wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3-768x493.jpg 768w, wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3-750x481.jpg 750w, wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3-540x347.jpg 540w"
+                                                 data-src="wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3.jpg" data-sizes="(max-width: 1200px) 100vw, 1200px" class="aligncenter attachment-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw" /><noscript><img width="1200" height="770" src="wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3.jpg" class="aligncenter attachment-full" alt="" srcset="wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3.jpg 1200w, wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3-500x321.jpg 500w, wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3-300x193.jpg 300w, wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3-1024x657.jpg 1024w, wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3-768x493.jpg 768w, wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3-750x481.jpg 750w, wp-content/uploads/2021/05/0d0e4640-75c0-42ce-8a87-907bd37931a3-540x347.jpg 540w" sizes="(max-width: 1200px) 100vw, 1200px" /></noscript>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_column vc_column_container vc_col-sm-6">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                            <div class="wpb_text_column wpb_content_element  vc_custom_1620727477419">
+                                                <div class="wpb_wrapper">
+                                                    <p>
+                                                        ABS (A Blessed Society) is a forum managed by young volunteers from all over the world for the development of the youth. All its members are fully committed to help each other in the identification of their
+                                                        challenges and overcome those through mutual cooperation, collaboration and positive peer pressure; thus, bringing prosperity in each youngster’s life.
+                                                    </p>
+                                                    <p>
+                                                        ABS is a strategic umbrella program which houses numerous youth platforms dealing with different facets of youngsters’ lives. The main objective of each of these platforms is to address the challenges faced
+                                                        by each and every segment of the youth and provide end to end solution to the problems encountered by the youth in excelling in their academic, as well as professional lives.
+                                                    </p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_column vc_column_container vc_col-sm-12">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                            <div id="1512545125069-779df5be-4dde" class="dt-sc-empty-space"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid dt-sc-dark-bg">
+                                <div class="wpb_column vc_column_container vc_col-sm-12">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                            <div id="1512545642486-4a5d4043-6409" class="dt-sc-empty-space"></div>
+                                            <div class="dt-sc-title with-image dt-sc-online-learning-title">
+                                                <h2>Spirit of ABS</h2><span><img width="19" height="43" alt="onliine-learning-title-img-light" data-src="wp-content/uploads/2018/05/onliine-learning-title-img-light.png" class="attachment-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img width="19" height="43" alt="onliine-learning-title-img-light" data-src="wp-content/uploads/2018/05/onliine-learning-title-img-light.png" class="attachment-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img width="19" height="43" src="wp-content/uploads/2018/05/onliine-learning-title-img-light.png" class="attachment-full" alt="onliine-learning-title-img-light" /></noscript></noscript></span>
+                                                <h6></h6>
+                                            </div>
+                                            <div id="1512546390206-3f04fc0c-5db3" class="dt-sc-empty-space"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+
+                                <div class="wpb_column vc_column_container vc_col-sm-12">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                            <div class='dt-sc-icon-box type8 dark-hover-content'>
+                                                <div class="icon-wrapper">
+                                                    <img width="70" height="70" alt="" data-src="wp-content/uploads/2018/08/icon1.png" class="attachment-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img width="70" height="70" src="wp-content/uploads/2018/08/icon1.png" class="attachment-full" alt="" /></noscript>
+                                                </div>
+                                                <div class="icon-content">
+                                                    <h4><strong>Earnest Human Desires</strong></h4>
+                                                    <p>• Protection and all-encompassing prosperity (personal   & loved ones’) in worldly life  </p>
+                                                    <p>   • Space under the shade of Ersh-E-Elahi on Day of Judgment, once no other shade would be available </p>
+                                                    <p>   • Assured highest place in Junnah                                                  </p>
+                                                  
+                                                </div>
+                                            </div>
+
+                                            <div class='dt-sc-icon-box type8 dark-hover-content'>
+                                                <div class="icon-wrapper">
+                                                    <img width="70" height="70" alt="" data-src="wp-content/uploads/2018/08/icon1.png" class="attachment-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img width="70" height="70" src="wp-content/uploads/2018/08/icon1.png" class="attachment-full" alt="" /></noscript>
+                                                </div>
+                                                <div class="icon-content">
+                                                 
+                                                    <h4><strong>Fulfilment of Earnest Human Desires</strong></h4>
+                                                    <p>• If you take care of Orphans, Devine takes charge of you & your loved ones    </p>
+                                                    <p>• Allah declares you friend 100 times in Quran if you exhibit sympathy, empathy & compassion; thus, compassion for Orphan shall manage you an assured space under the Ersh-E-Elahi on Day of Judgment among Allah Almighty’s friends </p>
+                                                    <p>• Holy Prophet (ﷺ) has been narrated as saying that, a person looking after an orphan would be as closer to Him (ﷺ) in the Paradise as the index and middle fingers</p>
+                                                </div>
+                                            </div>
+
+                                            <div class='dt-sc-icon-box type8 dark-hover-content'>
+                                                <div class="icon-wrapper">
+                                                    <img width="70" height="70" alt="" data-src="wp-content/uploads/2018/08/icon3.png" class="attachment-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img width="70" height="70" src="wp-content/uploads/2018/08/icon3.png" class="attachment-full" alt="" /></noscript>
+                                                </div>
+                                                <div class="icon-content">
+                                                    <h4><strong>Challenges </strong></h4>
+                                                    <p>• Donors’ trust deficit in NGOs and fear of their donations’ wastage / abuse </p>
+                                                    <p>• Missing link between donor and beneficiaries</p>
+                                                    <p>• Identification of most deserving beneficiaries</p>
+                                                    <p>• Lack of opportunities other than financial support to orphans</p>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class='dt-sc-icon-box type8 dark-hover-content'>
+                                                <div class="icon-wrapper">
+                                                    <img width="70" height="70" alt="" data-src="wp-content/uploads/2018/08/icon3.png" class="attachment-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img width="70" height="70" src="wp-content/uploads/2018/08/icon3.png" class="attachment-full" alt="" /></noscript>
+                                                </div>
+                                                <div class="icon-content">
+
+                                                    <h4><strong>Solutions </strong></h4>
+                                                    <p>• 100% visibility between donor & beneficiaries</p>
+                                                    <p>• No financial transactions to NGOs or beneficiaries; only donations of need-based items in kind</p>
+                                                    <p>• Scrutiny and registration / retention of most deserving beneficiaries</p>
+                                                    <p>• Opportunity of supporting orphans without spending any finances</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpb_column vc_column_container vc_col-sm-12">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                            <div class='dt-sc-icon-box type8 dark-hover-content'>
+                                                <div class="icon-wrapper">
+                                                    <img width="70" height="70" alt="" data-src="wp-content/uploads/2018/08/icon2.png" class="attachment-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img width="70" height="70" src="wp-content/uploads/2018/08/icon2.png" class="attachment-full" alt="" /></noscript>
+                                                </div>
+                                                <div class="icon-content">
+                                                    <h4><strong> Proposed System</strong></h4>
+                                                    <p>• Establishing connectivity between all stakeholders; that, donors, volunteers and beneficiaries </p>
+                                                    <p>• Orphans registered with Government Schools belonging to poorest of the poor segments of society identified for support </p>
+                                                    <p>• Their pressing needs for uniform, shoes and bags directly fulfilled by donors having access to them, their guardians and principals. </p>
+                                                    <p>• Registration and scrutiny through team of volunteers.</p>
+                                                    <p>• Registration of beneficiaries by volunteers or donor himself / herself from nearest government school.</p>
+                                                    <p>• Consolidation of donations needed in kind only.</p>
+                                                    <p>• Delivery of donated items collectively to all deserving students by minimum two stake holder among Donor, Principal and Volunteer.</p>
+                                                    <p>• Recording of donation and uploading of video coverage. </p>
+                                                   
+                                                </div>
+                                            </div>
+
+                                            <div class='dt-sc-icon-box type8 dark-hover-content'>
+                                                <div class="icon-wrapper">
+                                                    <img width="70" height="70" alt="" data-src="wp-content/uploads/2018/08/icon2.png" class="attachment-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img width="70" height="70" src="wp-content/uploads/2018/08/icon2.png" class="attachment-full" alt="" /></noscript>
+                                                </div>
+                                                <div class="icon-content">
+                                                   
+                                                    <h4><strong>Implementation</strong></h4>
+                                                    <p>• 100% visibility between donor & beneficiaries</p>
+                                                    <p>• No financial transactions to NGOs or beneficiaries; only donations of need-based items in kind</p>
+                                                    <p>• Scrutiny and registration / retention of most deserving beneficiaries</p>
+                                                    <p>• Opportunity of supporting orphans without spending any finances</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+                                <div class="wpb_column vc_column_container vc_col-sm-12">
+                                    <div class="vc_column-inner ">
+                                        <div class="wpb_wrapper">
+                                            <div id="1512546940308-660a3a0b-df77" class="dt-sc-empty-space"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vc_row-full-width vc_clearfix"></div>
+                            <!-- Row Backgrounds -->
+                            <div class="upb_bg_img" data-ultimate-bg="url(wp-content/uploads/2021/05/bg1.jpg)" data-image-id="id^11886|url^wp-content/uploads/2021/05/bg1.jpg|caption^null|alt^null|title^bg1|description^null"
+                                 data-ultimate-bg-style="vcpb-vz-jquery" data-bg-img-repeat="no-repeat" data-bg-img-size="cover" data-bg-img-position="" data-parallx_sense="30" data-bg-override="0" data-bg_img_attach="scroll" data-upb-overlay-color="rgba(0,0,0,0.7)"
+                                 data-upb-bg-animation="" data-fadeout="" data-bg-animation="left-animation" data-bg-animation-type="h" data-animation-repeat="repeat" data-fadeout-percentage="30" data-parallax-content="" data-parallax-content-sense="30" data-row-effect-mobile-disable="true"
+                                 data-img-parallax-mobile-disable="true" data-rtl="false" data-custom-vc-row="" data-vc="6.6.0" data-is_old_vc="" data-theme-support="" data-overlay="true" data-overlay-color="rgba(0,0,0,0.7)" data-overlay-pattern="" data-overlay-pattern-opacity="0.8"
+                                 data-overlay-pattern-size="" data-overlay-pattern-attachment="scroll"></div>
+                            
+                          
+                            <!-- Row Backgrounds -->
+                            <div class="upb_bg_img" data-ultimate-bg="url(wp-content/uploads/2018/06/pattern-online-learning.png)" data-image-id="id^11486|url^wp-content/uploads/2018/06/pattern-online-learning.png|caption^null|alt^null|title^pattern-online-learning|description^null"
+                                 data-ultimate-bg-style="vcpb-vz-jquery" data-bg-img-repeat="repeat" data-bg-img-size="initial" data-bg-img-position="" data-parallx_sense="30" data-bg-override="0" data-bg_img_attach="scroll" data-upb-overlay-color="" data-upb-bg-animation=""
+                                 data-fadeout="" data-bg-animation="left-animation" data-bg-animation-type="h" data-animation-repeat="repeat" data-fadeout-percentage="30" data-parallax-content="" data-parallax-content-sense="30" data-row-effect-mobile-disable="true"
+                                 data-img-parallax-mobile-disable="true" data-rtl="false" data-custom-vc-row="" data-vc="6.6.0" data-is_old_vc="" data-theme-support="" data-overlay="false" data-overlay-color="" data-overlay-pattern="" data-overlay-pattern-opacity=""
+                                 data-overlay-pattern-size=""></div>
+                        </div>
+                        <!-- #post-228 -->
+                    </section>
+                    <!-- Primary End -->
+                </div>
+                <!-- ** Container End ** -->
+
+            </div>
+</asp:Content>
