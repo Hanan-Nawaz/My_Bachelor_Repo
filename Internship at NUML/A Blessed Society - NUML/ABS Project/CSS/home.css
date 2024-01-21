@@ -1,0 +1,968 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&family=Roboto&family=Roboto+Condensed:ital,wght@1,700&family=Syne+Tactile&display=swap');
+
+/* Navigation Code Starts*/
+
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+}
+
+.header ul {
+    position: fixed;
+    list-style-type: none;
+    width: 100%;
+    height: 75px;
+    padding: 0;
+    background-color: white;
+    opacity: 0.9;
+}
+
+.header .nav {
+    margin-left: 240px;
+}
+
+.header li {
+    margin-top: 15px;
+    float: left;
+    margin-left: 23px;
+}
+
+.header .org_name {
+    margin-top: 10px;
+    margin-left: 80px;
+    display: block;
+}
+
+.header li a {
+    display: block;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header .org_name h4 {
+    color: black;
+    font-size: 25px;
+    margin-left: 50px;
+    margin-right: 100px;
+    font-weight: bolder;
+    margin-top: 8px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header .org_name p {
+    color: deeppink;
+    font-size: 15px;
+    margin-left: 22px;
+    margin-top: 0px;
+    font-weight: lighter;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.header li a:hover {
+    color: blue;
+    border-bottom: 2px solid blue;
+}
+
+.header li .reg_btn {
+    display: block;
+    color: black;
+    width: 80px;
+    height: 20px;
+    font-size: 16px;
+    text-align: center;
+    padding: 14px 16px;
+    margin-left: 30px;
+    border-radius: 30px;
+    border: 2px solid deeppink;
+    background-color: white;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header li .login_btn {
+    display: block;
+    color: black;
+    width: 80px;
+    height: 20px;
+    font-size: 16px;
+    text-align: center;
+    padding: 14px 16px;
+    margin-left: 30px;
+    border-radius: 30px;
+    border: 2px solid deeppink;
+    background-color: white;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header li .reg_btn:hover {
+    color: blue;
+    border: 2px solid blue;
+}
+
+.header li .login_btn:hover {
+    color: blue;
+    border: 2px solid blue;
+}
+
+#menu-btn {
+    display: none;
+    color: black;
+    font-size: 40px;
+    margin-top : 20px; 
+}
+
+/* Navigation Code ends*/
+
+
+/* home Code ends*/
+
+.home img {
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+}
+
+.home .donate_btn {
+    color: white;
+    width: 150px;
+    height: 40px;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 50px;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid deeppink;
+    transform: translateX(250px) translateY(-140px);
+    display: block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.home .donate_btn:hover {
+    color: deeppink;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.human_des {
+    width:100%;
+}
+
+.human_des h3 {
+    margin-top: -10px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+}
+
+.human_des .card {
+   display: flex;
+}
+
+.human_des .card1 {
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 45%;
+    margin-left: 3.5%;
+    height: 270px;
+}
+
+.human_des .card1 h4{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.human_des p{
+    font-size: 16px;
+}
+
+.human_des .card1:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.human_des .container {
+    padding: 2px 16px;
+}
+
+.human_des .card2 {
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 45%;
+    height: 270px;
+    margin-top: -270px;
+    margin-left: 50%;
+}
+
+.human_des .card2 h4{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.human_des .card2:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.human_des .container {
+    padding: 2px 16px;
+}
+
+.sol {
+    width: 100%;
+}
+
+.chall {
+    width: 50%;
+    height: 400px;
+}
+
+.chall p {
+    margin-top: 4px;
+    margin-left: 10px;
+    font-size: 16px;
+
+}
+
+.sol h3 {
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+}
+
+.sol h4 {
+    text-align: center;
+    color: deeppink;
+    margin-bottom: 20px;
+}
+
+.sol img {
+    width: 50%;
+    height: 400px;
+    margin-left: 50%;
+    margin-top: -400px;
+}
+
+.system {
+    margin-top: 10px;
+    width: 100%;
+    height: 440px;
+}
+
+.system .txt {
+    margin-top: 0px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+}
+
+.system img {
+    width: 50%;
+    height: 440px;
+    border-radius: 3%;
+    margin-top: 15px;
+}
+
+.sys {
+    width: 50%;
+    height: 360px;
+    background-color: transparent;
+    margin-left: 50%;
+    margin-top: -440px;
+}
+
+.sys p {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 4px;
+}
+
+.sys h3 {
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 15px;
+
+}
+
+.sys h4 {
+    text-align: center;
+    color: deeppink;
+}
+
+.reg_bef {
+    width: 100%;
+    margin-top: 90px;
+}
+
+.reg_bef h3 {
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+
+.reg_btn_bef {
+    display: block;
+    color: black;
+    width: 250px;
+    height: 25px;
+    font-size: 18px;
+    text-align: center;
+    padding: 14px 16px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 35px;
+    background-color: white;
+    border: 2px solid deeppink;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.reg_btn_bef:hover {
+    border: 2px solid blue;
+    color: black;
+    cursor: pointer;
+}
+
+.blog {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.blog h3 {
+    margin-top: -20px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.blog .read_more {
+    display: block;
+    color: white;
+    width: 90px;
+    height: 20px;
+    font-size: 18px;
+    text-align: center;
+    padding: 14px 16px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5%;
+    background-color: green;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.blog .read_more:hover {
+    border: 1px solid black;
+    color: black;
+}
+
+.blog .box {
+    display: flex;
+    margin-left: 23%;
+    margin-top: 20px;
+}
+
+.blog .box .card_vol {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 300px;
+    margin-left: 3.5%;
+    height: 240px;
+    border: 1px solid #868181;
+    margin-top: 50px;
+}
+
+.blog .box .card_vol .circle {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #868181;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -40px;
+    background-color: white;
+}
+
+.blog .box .card_vol .circle h1 {
+    color: black;
+    text-align: center;
+    margin-top: 11px;
+}
+
+.blog .box .card_vol h4 {
+    text-align: center;
+}
+
+.blog .box .card_vol:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.blog .box .card_vol .container {
+    padding: 2px 16px;
+}
+
+
+.blog .box .card_donor {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 300px;
+    margin-left: 3.5%;
+    height: 240px;
+    border: 1px solid #868181;
+    margin-top: 50px;
+}
+
+
+.blog .box .card_donor .circle {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #868181;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -40px;
+    background-color: white;
+}
+
+.blog .box .card_donor .circle h1 {
+    color: black;
+    text-align: center;
+    margin-top: 11px;
+}
+
+.blog .box p {
+    width: 280px;
+    text-align: center;
+}
+
+.blog .box .card_donor h4 {
+    text-align: center;
+}
+
+.blog .box .card_donor:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.blog .box .card_donor .container {
+    padding: 2px 16px;
+}
+
+
+.contact {
+    width: 100%;
+    margin-top: 17px;
+}
+
+.contact h3 {
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+}
+
+.cont {
+    width: 50%;
+    height: 410px;
+}
+
+.cont h4 {
+      margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.cont .name {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 50px;
+    margin-top: 0px;
+}
+
+.cont .name_tb {
+    width: 440px;
+    height: 30px;
+    border: 2px solid black;
+    color: black;
+    font-size: 16px;
+    margin-left: 40px;
+    margin-top: 0px;
+}
+
+.cont .email {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.cont .email_tb {
+    width: 440px;
+    height: 30px;
+    border: 2px solid black;
+    color: black;
+    font-size: 16px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.cont .meassage {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.cont .message_tb {
+    width: 440px;
+    height: 100px;
+    border: 2px solid black;
+    color: black;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-top: 30px;
+    text-align: start;
+}
+
+.cont .sub_btn {
+    display: block;
+    color: white;
+    width: 70px;
+    height: 20px;
+    font-size: 18px;
+    text-align: center;
+    padding: 14px 16px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5%;
+    background-color: green;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.cont .sub_btn:hover {
+    border: 1px solid black;
+    color: black;
+}
+
+.map {
+    margin-left: 50%;
+    margin-top: -400px;
+    padding-right: 20px;
+}
+
+.map iframe {
+    width: 100%;
+}
+
+.cont_map {
+    width: 100%;
+    height: 419px;
+}
+
+.about {
+    width: 100%;
+    margin-top: 27px;
+}
+
+.about h3 {
+    margin-top: -20px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+}
+
+.about p{
+    width: 420px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about .box {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 26%;
+}
+
+.about .box .card_vol {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 300px;
+    
+    height: 240px;
+    border: 1px solid #868181;
+    margin-top: 50px;
+}
+
+.about .box .card_vol .circle {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #868181;
+    border-radius: 50% ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -40px;
+    background-color: white;
+}
+
+.about .box .card_vol .circle h1 {
+    color: black;
+    text-align: center;
+    margin-top: 11px;
+}
+
+.about .box .card_vol h4{
+    text-align: center;
+}
+
+.about .box .card_vol:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.about .box .card_vol .container {
+    padding: 2px 16px;
+}
+
+
+.about .box .card_donor {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 300px;
+    margin-left: 3.5%;
+    height: 240px;
+    border: 1px solid #868181;
+    margin-top: 50px;
+}
+
+
+.about .box .card_donor .circle {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #868181;
+    border-radius: 50% ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -40px;
+    background-color: white;
+}
+
+.about .box .card_donor .circle h1 {
+    color: black;
+    text-align: center;
+    margin-top: 11px;
+}
+
+.about .box p {
+    width: 280px;
+    text-align: center;
+}
+
+.about .box .card_donor h4{
+    text-align: center;
+}
+
+.about .box .card_donor:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.about .box .card_donor .container {
+    padding: 2px 16px;
+}
+
+/*Footer code from here*/
+
+
+.footer{
+    background:black;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.footer .share{
+    padding:1rem 0;
+}
+
+.footer .share a{
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    color:#fff;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,.3);
+    margin:.3rem;
+    border-radius: 50%;
+}
+
+.footer .share a:hover{
+    border: 1px solid white;
+}
+
+.footer .credit{
+    font-size: 15px;
+    color:#fff;
+    font-weight: lighter;
+    padding:1.5rem;
+}
+
+.footer .credit span{
+    color: deeppink;
+}
+
+.footer .credit span a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer .credit span a:hover {
+    color: deeppink;
+}
+
+
+@media only screen and (max-width: 1250px) {
+
+    p{
+        font-size: 15px;
+    }
+
+    .header li {
+        margin-left: -6px;
+    }
+
+    .header .org_name h4{
+        margin-right: 0px;
+    }
+
+    .cont .email_tb {
+        width: 300px;
+    }
+
+    .cont .name_tb {
+        width: 300px;
+    }
+
+    .cont .message_tb {
+        width: 300px;
+    }
+
+    .about .box {
+        margin-left: 20%;
+    }
+
+    .blog .box {
+        margin-left: 17.5%;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+
+
+
+    #menu-btn {
+        display: block;
+        margin-left: 70%;
+    }
+
+    .header .nav .org_name {
+        display: block;
+    }
+
+    .header .org_name h4 {
+        margin-right: 0px;
+    }
+
+    .header .nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background: #fff;
+        width: 400px;
+        height: calc(100vh - 9.5rem);
+    }
+
+    .header .nav li {
+        width: 400px;
+        font-size: 20px;
+
+    }
+
+    .header .nav li .reg_btn {
+        margin-left: 100px;
+        width: 200px;
+        font-size: 20px;
+    }
+
+    .header .nav li .login_btn {
+        margin-left: 100px;
+        width: 200px;
+        font-size: 20px;
+    }
+
+    .header .nav.active {
+        right: 0;
+    }
+
+    .human_des .card1 {
+        width: 90%;
+        margin-left: 5%;
+        margin-right:5%;      
+    }
+    
+    .human_des .card1 {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .human_des .card2 {
+        margin-top: 15px;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .human_des p{
+        font-size: 24px;
+    }
+
+    .human_des h4{
+        font-size: 27px;
+    }
+
+    .sol img {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: -390px;
+    }
+
+    .chall {
+        height: 400px;
+        transform: translateY(420px);
+        margin-left:5%;
+        margin-right:5%;
+        width:90%;
+    }
+
+    .chall p {
+        font-size: 24px;
+    }
+
+    .chall h4{
+        font-size: 27px;
+    }
+
+    .system {
+        margin-top: 415px;
+    }
+
+    .system img {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .sys {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 400px;
+        margin-top: 40px;
+    }
+
+    .sys p {
+        font-size: 24px;
+    }
+
+    .sys h4{
+        font-size: 27px;
+    }
+
+    .reg_bef {
+        margin-top: 753px;
+    }
+
+    .reg_btn_bef {
+        font-size: 27px;
+        width: 400px;
+    }
+
+    .blog .box {
+        flex-direction: column;
+        width: 100%;
+        margin-left:0;
+        margin-right:0;
+    }
+
+    .blog .box .card_vol {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .blog .box .card_donor {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    .cont{
+        width:100%;
+    }
+
+    .cont .email_tb {
+        width: 80%;
+    }
+
+    .cont .name_tb {
+        width: 80%;
+    }
+
+    .cont .message_tb {
+        width: 80%;
+    }
+
+    .map {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 0px;
+    }
+
+    .about {
+        margin-top: 400px;
+    }
+
+    .about p{
+        font-size: 24px;
+    }
+
+    .about h4 {
+        font-size: 27px;
+    }
+}
+
+
+
