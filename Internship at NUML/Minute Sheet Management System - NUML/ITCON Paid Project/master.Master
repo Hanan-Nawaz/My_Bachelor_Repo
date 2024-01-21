@@ -1,0 +1,256 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master.master.cs" Inherits="ITCON_Paid_Project.master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+ 
+        <script type="text/javascript">
+
+            var button = document.getElementById("logout");
+            button.onclick = function (event) {
+                window.history.forward(-1);
+            }
+
+
+        </script>
+
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='robots' content='max-image-preview:large' />
+    <link rel='dns-prefetch' href='//s.w.org' />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <link href='https://fonts.gstatic.com'  rel='preconnect' />  
+     <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <link rel="stylesheet" href="CSS/master.css" type="text/css" />
+
+
+<!-- MDB -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css"
+/> 
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"
+></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+   
+ 
+  
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js" integrity="sha512-MqEDqB7me8klOYxXXQlB4LaNf9V9S0+sG1i8LtPOYmHqICuEZ9ZLbyV3qIfADg2UJcLyCm4fawNiFvnYbcBJ1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css" integrity="sha512-f8gN/IhfI+0E9Fc/LKtjVq4ywfhYAVeMGKsECzDUHcFJ5teVwvKTqizm+5a84FINhfrgdvjX8hEJbem2io1iTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js" integrity="sha512-XVz1P4Cymt04puwm5OITPm5gylyyj5vkahvf64T8xlt/ybeTpz4oHqJVIeDtDoF5kSrXMOUmdYewE4JS/4RWAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" integrity="sha512-hwwdtOTYkQwW2sedIsbuP1h0mWeJe/hFOfsvNKpRB3CkRxq8EW7QMheec1Sgd8prYxGm1OM9OZcGW7/GUud5Fw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+       <script>
+
+           var obj = { status: false, ele: null };
+
+           function confirmlogout(stat) {
+
+               if (obj.status) {
+                   return true;
+               }
+
+               swal({
+                   title: "Logout",
+                   text: "Are you sure you want to Logout?",
+                   type: "warning",
+                   showCancelButton: true,
+                   closeOnConfirm: true,
+                   closeOnCancel: false,
+                     confirmButtonClass: "btn-danger",
+               },
+                   function (isConfirm) {
+                       if (isConfirm) {
+                           obj.status = true;
+                           obj.ele = stat;
+                           obj.ele.onclick();
+                           window.location.href = "login_page.aspx";
+                       }
+                       else {
+
+                           
+
+                           swal("Cancelled","Your are not logged out:)", "error");
+
+                          
+                       }
+                   });
+
+
+               
+               return false;
+           };
+       </script>
+
+</head>
+<body>
+
+               <form id="form1" runat="server">
+
+
+        <!--Main Navigation-->
+<aside>
+  <!-- Sidebar -->
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar  bg-white">
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-2 mt-4">
+        <a
+          href="dashboard.aspx"
+          class="list-group-item list-group-item-action py-2 ripple"
+          aria-current="true"
+        >
+          <i class="fas fa-tachometer-alt fa-fw me-3" ></i><span>Main dashboard</span>
+        </a>
+        <asp:LinkButton runat="server" ID="sheet_list" href="showsheets.aspx" class="list-group-item list-group-item-action py-2 ripple ">
+          <i class="fas fa-list fa-fw me-3"></i><span>Show Sheets</span>
+        </asp:LinkButton>
+
+        <asp:LinkButton runat="server" ID="add_min" href="addminutesheets.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-add fa-fw me-3"></i><span>Add Minutesheet</span></asp:LinkButton>
+
+
+        <asp:LinkButton runat="server" ID="add_total" href="addtotal.aspx" class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-add fa-fw me-3"></i><span>Account Head</span>
+        </asp:LinkButton>
+
+        <asp:LinkButton runat="server" ID="see_history" href="seehistory.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-history fa-fw me-3"></i><span>History</span></asp:LinkButton>
+
+        <asp:LinkButton runat="server" ID="view_cate" href="viewcategory.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-eye fa-fw me-3"></i><span>View Account Head</span></asp:LinkButton>
+
+            <asp:LinkButton runat="server" ID="add_user" href="adduser.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-add fa-fw me-3"></i><span>Add Approver/User</span></asp:LinkButton>
+
+      
+
+      </div>
+    </div>
+  </nav>
+  <!-- Sidebar -->
+
+  <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"> </i>
+  </button>
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="dashboard.aspx">
+ <img
+              src="photo/logo.png"
+              class="rounded-circle"
+              height="37"
+              alt="Avatar"
+              loading="lazy"
+            />      </a>
+     
+
+      <!-- Right links -->
+      <ul class="navbar-nav ms-auto d-flex flex-row">
+        <!-- Notification dropdown -->
+       
+                
+        <!-- Avatar -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
+            href="viewprofile.aspx"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+                runat="server"
+                id="profilepict"
+              src="~/photo/img_avatar.png"
+              class="rounded-circle"
+              height="37"
+              alt="Avatar"
+              loading="lazy"
+            />
+          </a>
+        
+        </li>
+
+            <li class="nav-item dropdown">
+             <asp:LinkButton class="dropdown-item" id="logout" runat="server" OnClientClick="return confirmlogout(this);" OnClick="logout_btn_Click" ><i class="fa fa-sign-out" style="font-size:30px;color:red; margin-top: 7px;"></i>
+</asp:LinkButton>
+</li>
+      </ul>
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+</aside>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main style="margin-top: 58px;">
+
+  <div class="container pt-4">
+               <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+  </div>
+</main>
+<!--Main layout-->
+
+                  </form>
+
+
+
+        <footer class="site-footer">
+
+                <p class="copyright-text">
+                    Copyright &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved <a href="http://www.numl.edu.pk/"> NUML </a> | Powered by <a href="http://www.numl.edu.pk/offices/itcon/">ITCON</a>
+                </p>
+
+            </footer>
+
+
+
+
+</body>
+</html>
+
