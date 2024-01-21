@@ -1,0 +1,776 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9C915F50-3DAD-4C7E-96C5-30F63094FE37}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ABS_Project</RootNamespace>
+    <AssemblyName>ABS Project</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44314</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azure.Core, Version=1.20.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Core.1.20.0\lib\net461\Azure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Identity, Version=1.5.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Identity.1.5.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="MaxMind.Db, Version=4.0.0.0, Culture=neutral, PublicKeyToken=66afa4cc5ae853ac, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaxMind.Db.4.0.0\lib\netstandard2.0\MaxMind.Db.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.SqlClient, Version=3.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.SqlClient.3.0.0\lib\net461\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Sql.BatchParser, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.Data.Tools.Sql.BatchParser.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.35.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.35.0\lib\net461\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=2.18.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.Extensions.Msal.2.18.4\lib\net45\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.8.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.8.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.6.8.0\lib\net461\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.6.8.0\lib\net461\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.8.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Assessment, Version=1.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Assessment.1.0.305\lib\net462\Microsoft.SqlServer.Assessment.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Assessment.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Assessment.Authoring.1.0.282\lib\net462\Microsoft.SqlServer.Assessment.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dmf, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Dmf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dmf.Common, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Dmf.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Assessment, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Management.Assessment.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Collector, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Management.Collector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.CollectorEnum, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Management.CollectorEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.HadrData, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Management.HadrData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.HadrModel, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Management.HadrModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.RegisteredServers, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Management.RegisteredServers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.SqlScriptPublish, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Management.SqlScriptPublish.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.XEvent, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Management.XEvent.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.XEventDbScoped, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Management.XEventDbScoped.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.XEventDbScopedEnum, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Management.XEventDbScopedEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.XEventEnum, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Management.XEventEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.PolicyEnum, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.PolicyEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.RegSvrEnum, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.RegSvrEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ServiceBrokerEnum, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.ServiceBrokerEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo.Notebook, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.Smo.Notebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.SmoExtended.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlClrProvider, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.SqlClrProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.SqlEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlWmiManagement, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.SqlWmiManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.WmiEnum, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47008.0\lib\net462\Microsoft.SqlServer.WmiEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.7.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.8.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=1.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.Data.1.0.2\lib\net461\System.Memory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.4.5.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.7.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.7.2\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.6.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="about-us.aspx" />
+    <Content Include="abs.aspx" />
+    <Content Include="abs.ico" />
+    <Content Include="addcategory.aspx" />
+    <Content Include="AddContent.aspx" />
+    <Content Include="addlocation.aspx" />
+    <Content Include="addorganization.aspx" />
+    <Content Include="addprincipal.aspx" />
+    <Content Include="addprogress.aspx" />
+    <Content Include="addschool.aspx" />
+    <Content Include="contact-us.aspx" />
+    <Content Include="contactrequests.aspx" />
+    <Content Include="CSS\home.css" />
+    <Content Include="CSS\master.css" />
+    <Content Include="CSS\showbenificary.css" />
+    <Content Include="dashboard.aspx" />
+    <Content Include="DeleteContent.aspx" />
+    <Content Include="Editbenificary.aspx" />
+    <Content Include="EditProfile.aspx" />
+    <Content Include="Forgot-Password.aspx" />
+    <Content Include="Guide.aspx" />
+    <Content Include="Personal-Prosperous-Life.aspx" />
+    <Content Include="pictures\admin.jpg" />
+    <Content Include="pictures\img.png" />
+    <Content Include="pictures\img1.png" />
+    <Content Include="pictures\pic.jpg" />
+    <Content Include="pictures\pic0.jpg" />
+    <Content Include="JS\Script.js" />
+    <Content Include="login.aspx" />
+    <Content Include="profile.aspx" />
+    <Content Include="progress.aspx" />
+    <Content Include="registerbenificary.aspx" />
+    <Content Include="reply.aspx" />
+    <Content Include="Reset-Password.aspx" />
+    <Content Include="seelists.aspx" />
+    <Content Include="showbenificary.aspx" />
+    <Content Include="registration.aspx" />
+    <Content Include="View-Personal-Prosperous-Life.aspx" />
+    <Content Include="viewbenificary.aspx" />
+    <Content Include="viewprogress.aspx" />
+    <Content Include="ViewTopics.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="wp-content\plugins\contact-form-7\includes\css\styles.css" />
+    <Content Include="wp-content\plugins\contact-form-7\includes\js\index.js" />
+    <Content Include="wp-content\plugins\designthemes-core-features\custom-post-types\css\portfolio.css" />
+    <Content Include="wp-content\plugins\designthemes-core-features\custom-post-types\js\protfolio-custom.js" />
+    <Content Include="wp-content\plugins\designthemes-core-features\shortcodes\css\animations.css" />
+    <Content Include="wp-content\plugins\designthemes-core-features\shortcodes\css\shortcodes.css" />
+    <Content Include="wp-content\plugins\designthemes-core-features\shortcodes\css\slick.css" />
+    <Content Include="wp-content\plugins\designthemes-core-features\shortcodes\js\jquery.animateNumber.min.js" />
+    <Content Include="wp-content\plugins\designthemes-core-features\shortcodes\js\jquery.donutchart.js" />
+    <Content Include="wp-content\plugins\designthemes-core-features\shortcodes\js\jquery.inview.js" />
+    <Content Include="wp-content\plugins\designthemes-core-features\shortcodes\js\jquery.tabs.min.js" />
+    <Content Include="wp-content\plugins\designthemes-core-features\shortcodes\js\jquery.tipTip.minified.js" />
+    <Content Include="wp-content\plugins\designthemes-core-features\shortcodes\js\jquery.toggle.click.js" />
+    <Content Include="wp-content\plugins\designthemes-core-features\shortcodes\js\shortcodes.js" />
+    <Content Include="wp-content\plugins\designthemes-core-features\shortcodes\js\slick.min.js" />
+    <Content Include="wp-content\plugins\instagram-feed\css\sbi-styles.min.css" />
+    <Content Include="wp-content\plugins\js_composer\assets\css\js_composer.min.css" />
+    <Content Include="wp-content\plugins\js_composer\assets\js\dist\js_composer_front.min.js" />
+    <Content Include="wp-content\plugins\js_composer\assets\js\vendors\woocommerce-add-to-cart.js" />
+    <Content Include="wp-content\plugins\js_composer\assets\lib\bower\animate-css\animate.min.css" />
+    <Content Include="wp-content\plugins\js_composer\assets\lib\bower\font-awesome\css\all.min.css" />
+    <Content Include="wp-content\plugins\js_composer\assets\lib\bower\font-awesome\css\v4-shims.min.css" />
+    <Content Include="wp-content\plugins\js_composer\assets\lib\prettyphoto\css\prettyPhoto.min.css" />
+    <Content Include="wp-content\plugins\js_composer\assets\lib\vc_waypoints\vc-waypoints.min.js" />
+    <Content Include="wp-content\plugins\LayerSlider\assets\static\layerslider\css\layerslider.css" />
+    <Content Include="wp-content\plugins\LayerSlider\assets\static\layerslider\js\layerslider.kreaturamedia.jquery.js" />
+    <Content Include="wp-content\plugins\LayerSlider\assets\static\layerslider\js\layerslider.transitions.js" />
+    <Content Include="wp-content\plugins\LayerSlider\assets\static\layerslider\js\layerslider.utils.js" />
+    <Content Include="wp-content\plugins\revslider\public\assets\css\rs6.css" />
+    <Content Include="wp-content\plugins\revslider\public\assets\js\rbtools.min.js" />
+    <Content Include="wp-content\plugins\revslider\public\assets\js\rs6.min.js" />
+    <Content Include="wp-content\plugins\secure-copy-content-protection\public\css\secure-copy-content-protection-public.css" />
+    <Content Include="wp-content\plugins\the-events-calendar\common\src\resources\js\underscore-after.js" />
+    <Content Include="wp-content\plugins\the-events-calendar\common\src\resources\js\underscore-before.js" />
+    <Content Include="wp-content\plugins\the-events-calendar\vendor\jquery-placeholder\jquery.placeholder.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\pickadate\default.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\pickadate\default.date.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\pickadate\default.time.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\select2\select2.min.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\simplebar.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-account.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-crop.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-fileupload.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-fonticons-fa.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-fonticons-ii.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-misc.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-modal.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-old-default.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-profile.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-raty.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-responsive.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-styles.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\css\um-tipsy.css" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\pickadate\picker.date.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\pickadate\picker.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\pickadate\picker.time.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\select2\select2.full.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\simplebar.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-account.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-conditional.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-crop.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-fileupload.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-functions.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-gdpr.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-jquery-form.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-modal.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-profile.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-raty.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-responsive.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-scripts.min.js" />
+    <Content Include="wp-content\plugins\ultimate-member\assets\js\um-tipsy.min.js" />
+    <Content Include="wp-content\plugins\Ultimate_VC_Addons\assets\css\icons.css" />
+    <Content Include="wp-content\plugins\Ultimate_VC_Addons\assets\min-css\ajax-loader.gif" />
+    <Content Include="wp-content\plugins\Ultimate_VC_Addons\assets\min-css\ultimate.min.css" />
+    <Content Include="wp-content\plugins\Ultimate_VC_Addons\assets\min-js\ultimate.min.js" />
+    <Content Include="wp-content\plugins\Ultimate_VC_Addons\assets\min-js\ultimate_bg.min.js" />
+    <Content Include="wp-content\plugins\Ultimate_VC_Addons\assets\min-js\vhparallax.min.js" />
+    <Content Include="wp-content\plugins\um-user-photos\assets\css\images-grid.min.css" />
+    <Content Include="wp-content\plugins\um-user-photos\assets\css\um-user-photos.min.css" />
+    <Content Include="wp-content\plugins\um-user-photos\assets\js\images-grid.min.js" />
+    <Content Include="wp-content\plugins\um-user-photos\assets\js\um-user-photos.min.js" />
+    <Content Include="wp-content\plugins\woocommerce\assets\js\frontend\add-to-cart.min.js" />
+    <Content Include="wp-content\plugins\woocommerce\assets\js\frontend\cart-fragments.min.js" />
+    <Content Include="wp-content\plugins\woocommerce\assets\js\frontend\woocommerce.min.js" />
+    <Content Include="wp-content\plugins\woocommerce\assets\js\jquery-blockui\jquery.blockUI.min.js" />
+    <Content Include="wp-content\plugins\woocommerce\assets\js\js-cookie\js.cookie.min.js" />
+    <Content Include="wp-content\plugins\woocommerce\packages\woocommerce-blocks\build\style.css" />
+    <Content Include="wp-content\plugins\woocommerce\packages\woocommerce-blocks\build\vendors-style.css" />
+    <Content Include="wp-content\plugins\wp-smushit\app\assets\js\smush-lazy-load.min.js" />
+    <Content Include="wp-content\plugins\wpgsi\public\css\wpgsi-public.css" />
+    <Content Include="wp-content\plugins\wpgsi\public\js\wpgsi-public.js" />
+    <Content Include="wp-content\themes\kalvi\css\base.css" />
+    <Content Include="wp-content\themes\kalvi\css\bbpress.min.css" />
+    <Content Include="wp-content\themes\kalvi\css\blog.css" />
+    <Content Include="wp-content\themes\kalvi\css\browsers.css" />
+    <Content Include="wp-content\themes\kalvi\css\contact.css" />
+    <Content Include="wp-content\themes\kalvi\css\cookieconsent.css" />
+    <Content Include="wp-content\themes\kalvi\css\custom-class.css" />
+    <Content Include="wp-content\themes\kalvi\css\custom.css" />
+    <Content Include="wp-content\themes\kalvi\css\font-awesome.min.css" />
+    <Content Include="wp-content\themes\kalvi\css\grid.css" />
+    <Content Include="wp-content\themes\kalvi\css\gutenberg.css" />
+    <Content Include="wp-content\themes\kalvi\css\icomoon.css" />
+    <Content Include="wp-content\themes\kalvi\css\icon-moon.css" />
+    <Content Include="wp-content\themes\kalvi\css\layout.css" />
+    <Content Include="wp-content\themes\kalvi\css\material-design-iconic-font.min.css" />
+    <Content Include="wp-content\themes\kalvi\css\megamenu.css" />
+    <Content Include="wp-content\themes\kalvi\css\pe-icon-7-stroke.css" />
+    <Content Include="wp-content\themes\kalvi\css\stroke-gap-icons-style.css" />
+    <Content Include="wp-content\themes\kalvi\css\widget.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\type1-fashion.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\type10-medical.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\type11-model.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\type12-attorney.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\type13-architecture.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\type14-fitness.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\type16-photography.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\type17-restaurant.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\type20-yoga.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\type21-styleshop.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\type4-hosting.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\type8-insurance.css" />
+    <Content Include="wp-content\themes\kalvi\css\woocommerce\woocommerce-default.css" />
+    <Content Include="wp-content\themes\kalvi\framework\js\cookieconsent.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\custom.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\isotope.pkgd.min.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.bxslider.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.caroufredsel.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.classie.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.debouncedresize.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.downcount.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.easing.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.fitvids.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.nicescroll.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.parallax.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.prettyphoto.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.simple-sidebar.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.sticky.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.touchswipe.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.ui.totop.min.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\jquery.visualNav.min.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\magnific\jquery.magnific-popup.min.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\magnific\magnific-popup.css" />
+    <Content Include="wp-content\themes\kalvi\framework\js\modernizr.custom.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\ResizeSensor.min.js" />
+    <Content Include="wp-content\themes\kalvi\framework\js\theia-sticky-sidebar.min.js" />
+    <Content Include="wp-content\themes\kalvi\style.css" />
+    <Content Include="wp-content\themes\kalvi\tribe-events\custom.css" />
+    <Content Include="wp-content\uploads\2018\05\onliine-learning-title-img-light.png" />
+    <Content Include="wp-content\uploads\2018\05\onliine-learning-title-img.png" />
+    <Content Include="wp-content\uploads\2018\08\icon1.png" />
+    <Content Include="wp-content\uploads\2018\08\icon2.png" />
+    <Content Include="wp-content\uploads\2018\08\icon3.png" />
+    <Content Include="wp-content\uploads\2021\05\0d0e4640-75c0-42ce-8a87-907bd37931a3.jpg" />
+    <Content Include="wp-content\uploads\2021\05\1064806716_0_192_3054_1909_1200x0_80_0_1_66aefbb4966bd146a544ec2dc29b8446.jpg" />
+    <Content Include="wp-content\uploads\2021\05\abs4-removebg-preview.png" />
+    <Content Include="wp-content\uploads\2021\05\cropped-14648842-32x32.jpg" />
+    <Content Include="wp-content\uploads\2021\05\MPM.jpg" />
+    <Content Include="wp-content\uploads\2021\05\pattern.jpg" />
+    <Content Include="wp-content\uploads\2021\05\people-2557399_1280.jpg" />
+    <Content Include="wp-content\uploads\2021\05\Scholarships-in-Pakistan-Cover-06-08.jpg" />
+    <Content Include="wp-content\uploads\2021\10\Background-White-e1468511345535.jpg" />
+    <Content Include="wp-content\uploads\smile_fonts\Defaults\Defaults.css" />
+    <Content Include="wp-includes\css\dist\block-library\style.min.css" />
+    <Content Include="wp-includes\js\dist\hooks.min.js" />
+    <Content Include="wp-includes\js\dist\i18n.min.js" />
+    <Content Include="wp-includes\js\dist\vendor\regenerator-runtime.min.js" />
+    <Content Include="wp-includes\js\dist\vendor\wp-polyfill.min.js" />
+    <Content Include="wp-includes\js\imagesloaded.min.js" />
+    <Content Include="wp-includes\js\jquery\jquery-migrate.min.js" />
+    <Content Include="wp-includes\js\jquery\jquery.masonry.min.js" />
+    <Content Include="wp-includes\js\jquery\jquery.min.js" />
+    <Content Include="wp-includes\js\jquery\ui\core.min.js" />
+    <Content Include="wp-includes\js\masonry.min.js" />
+    <Content Include="wp-includes\js\underscore.min.js" />
+    <Content Include="wp-includes\js\wp-embed.min.js" />
+    <Content Include="wp-includes\js\wp-emoji-release.min.js" />
+    <Content Include="wp-includes\js\wp-util.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="about-us.aspx.cs">
+      <DependentUpon>about-us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="about-us.aspx.designer.cs">
+      <DependentUpon>about-us.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="abs.aspx.cs">
+      <DependentUpon>abs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="abs.aspx.designer.cs">
+      <DependentUpon>abs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="abs.Master.cs">
+      <DependentUpon>abs.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="abs.Master.designer.cs">
+      <DependentUpon>abs.Master</DependentUpon>
+    </Compile>
+    <Compile Include="absmain.Master.cs">
+      <DependentUpon>absmain.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="absmain.Master.designer.cs">
+      <DependentUpon>absmain.Master</DependentUpon>
+    </Compile>
+    <Compile Include="addcategory.aspx.cs">
+      <DependentUpon>addcategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addcategory.aspx.designer.cs">
+      <DependentUpon>addcategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddContent.aspx.cs">
+      <DependentUpon>AddContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddContent.aspx.designer.cs">
+      <DependentUpon>AddContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addlocation.aspx.cs">
+      <DependentUpon>addlocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addlocation.aspx.designer.cs">
+      <DependentUpon>addlocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addorganization.aspx.cs">
+      <DependentUpon>addorganization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addorganization.aspx.designer.cs">
+      <DependentUpon>addorganization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addprincipal.aspx.cs">
+      <DependentUpon>addprincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addprincipal.aspx.designer.cs">
+      <DependentUpon>addprincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addprogress.aspx.cs">
+      <DependentUpon>addprogress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addprogress.aspx.designer.cs">
+      <DependentUpon>addprogress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addschool.aspx.cs">
+      <DependentUpon>addschool.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addschool.aspx.designer.cs">
+      <DependentUpon>addschool.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contact-us.aspx.cs">
+      <DependentUpon>contact-us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact-us.aspx.designer.cs">
+      <DependentUpon>contact-us.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contactrequests.aspx.cs">
+      <DependentUpon>contactrequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contactrequests.aspx.designer.cs">
+      <DependentUpon>contactrequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteContent.aspx.cs">
+      <DependentUpon>DeleteContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteContent.aspx.designer.cs">
+      <DependentUpon>DeleteContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Editbenificary.aspx.cs">
+      <DependentUpon>Editbenificary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Editbenificary.aspx.designer.cs">
+      <DependentUpon>Editbenificary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditProfile.aspx.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProfile.aspx.designer.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forgot-Password.aspx.cs">
+      <DependentUpon>Forgot-Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forgot-Password.aspx.designer.cs">
+      <DependentUpon>Forgot-Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Guide.aspx.cs">
+      <DependentUpon>Guide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Guide.aspx.designer.cs">
+      <DependentUpon>Guide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Personal-Prosperous-Life.aspx.cs">
+      <DependentUpon>Personal-Prosperous-Life.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Personal-Prosperous-Life.aspx.designer.cs">
+      <DependentUpon>Personal-Prosperous-Life.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="progress.aspx.cs">
+      <DependentUpon>progress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="progress.aspx.designer.cs">
+      <DependentUpon>progress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="registerbenificary.aspx.cs">
+      <DependentUpon>registerbenificary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registerbenificary.aspx.designer.cs">
+      <DependentUpon>registerbenificary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reply.aspx.cs">
+      <DependentUpon>reply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reply.aspx.designer.cs">
+      <DependentUpon>reply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reset-Password.aspx.cs">
+      <DependentUpon>Reset-Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reset-Password.aspx.designer.cs">
+      <DependentUpon>Reset-Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="seelists.aspx.cs">
+      <DependentUpon>seelists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="seelists.aspx.designer.cs">
+      <DependentUpon>seelists.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="showbenificary.aspx.cs">
+      <DependentUpon>showbenificary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showbenificary.aspx.designer.cs">
+      <DependentUpon>showbenificary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="registration.aspx.cs">
+      <DependentUpon>registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registration.aspx.designer.cs">
+      <DependentUpon>registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View-Personal-Prosperous-Life.aspx.cs">
+      <DependentUpon>View-Personal-Prosperous-Life.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View-Personal-Prosperous-Life.aspx.designer.cs">
+      <DependentUpon>View-Personal-Prosperous-Life.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewbenificary.aspx.cs">
+      <DependentUpon>viewbenificary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewbenificary.aspx.designer.cs">
+      <DependentUpon>viewbenificary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewprogress.aspx.cs">
+      <DependentUpon>viewprogress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewprogress.aspx.designer.cs">
+      <DependentUpon>viewprogress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTopics.aspx.cs">
+      <DependentUpon>ViewTopics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTopics.aspx.designer.cs">
+      <DependentUpon>ViewTopics.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="abs.Master" />
+    <Content Include="absmain.Master" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="wp-content\fonts\open-sans\memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVQUwaEQXjM.woff" />
+    <Content Include="wp-content\fonts\roboto\KFOjCnqEu92Fr1Mu51TjASc6CsLYl4BO.woff" />
+    <Content Include="wp-content\fonts\roboto\KFOlCnqEu92Fr1MmEU9fBBc-AMP6lQ.woff" />
+    <Content Include="wp-content\fonts\roboto\KFOlCnqEu92Fr1MmSU5fBBc-AMP6lQ.woff" />
+    <Content Include="wp-content\fonts\roboto\KFOlCnqEu92Fr1MmWUlfBBc-AMP6lQ.woff" />
+    <Content Include="wp-content\fonts\roboto\KFOmCnqEu92Fr1Mu4mxMKTU1Kg.woff" />
+    <Content Include="wp-content\plugins\js_composer\assets\lib\bower\font-awesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="wp-content\plugins\js_composer\assets\lib\bower\font-awesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="wp-content\plugins\revslider\public\assets\fonts\revicons\revicons.woff" />
+    <Content Include="wp-content\plugins\Ultimate_VC_Addons\assets\css\fonts\ult-silk.woff" />
+    <Content Include="wp-content\themes\kalvi\fonts\fontawesome-webfont.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>abs.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58185</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44314/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.3.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.3.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.3.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.3.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,216 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="abs.master.cs" Inherits="ABS_Project.abs1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='robots' content='max-image-preview:large' />
+    <link rel='dns-prefetch' href='//s.w.org' />
+    <link rel="shortcut icon" type="image/x-icon" href="abs.ico"/>
+    <link href='https://fonts.gstatic.com'  rel='preconnect' />  
+     <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <link rel="stylesheet" href="CSS/master.css" type="text/css" />
+
+<!-- MDB -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css"
+/> 
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"
+></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+   
+
+  
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+
+</head>
+<body>
+
+               <form id="form1" runat="server">
+
+
+        <!--Main Navigation-->
+<aside>
+  <!-- Sidebar -->
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar  bg-white">
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-2 mt-4">
+        <a
+          href="dashboard.aspx"
+          class="list-group-item list-group-item-action py-2 ripple"
+          aria-current="true"
+        >
+          <i class="fas fa-tachometer-alt fa-fw me-3" ></i><span>Main dashboard</span>
+        </a>
+        <asp:LinkButton runat="server" ID="benif_list" href="showbenificary.aspx" class="list-group-item list-group-item-action py-2 ripple ">
+          <i class="fas fa-list fa-fw me-3"></i><span>Benificary's List</span>
+        </asp:LinkButton>
+
+        <asp:LinkButton runat="server" ID="add_beni" href="registerbenificary.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-add fa-fw me-3"></i><span>Add Benificary</span></asp:LinkButton>
+
+        <asp:LinkButton runat="server" ID="add_prn" href="addprincipal.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-add fa-fw me-3"></i><span>Add Principal</span></asp:LinkButton>
+
+        <asp:LinkButton runat="server" ID="add_school" href="addschool.aspx" class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add School</span>
+        </asp:LinkButton>
+
+        <asp:LinkButton runat="server" ID="add_locat" href="addlocation.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-add fa-fw me-3"></i><span>Add Location</span></asp:LinkButton>
+
+        <asp:LinkButton runat="server" ID="ad_org" href="addorganization.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-add fa-fw me-3"></i><span>Add Organization</span></asp:LinkButton>
+
+            <asp:LinkButton runat="server" ID="add_catg" href="addcategory.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-add fa-fw me-3"></i><span>Add Category</span></asp:LinkButton>
+
+        <asp:LinkButton runat="server" ID="see_list" href="seelists.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-list fa-fw me-3"></i><span>See List</span></asp:LinkButton>
+         
+      
+        <asp:LinkButton runat="server" ID="view_prog" href="viewprogress.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-eye fa-fw me-3"></i><span>view Progress</span></asp:LinkButton>
+
+         <asp:LinkButton runat="server" ID="add_prog" href="addprogress.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-add fa-fw me-3"></i><span>Approve Videos</span></asp:LinkButton>
+
+        <asp:LinkButton runat="server" ID="add_blog" href="#" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-newspaper fa-fw me-3"></i><span>Add Blogs</span></asp:LinkButton>
+
+         <asp:LinkButton runat="server" ID="cont_req" href="contactrequests.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-phone fa-fw me-3"></i><span>Contact Requests</span></asp:LinkButton>
+
+            <asp:LinkButton runat="server" ID="btnAddContent" href="AddContent.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-add fa-fw me-3"></i><span>Add Content</span></asp:LinkButton>
+
+           <asp:LinkButton runat="server" ID="btnDelContent" href="DeleteContent.aspx" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-remove fa-fw me-3"></i><span>Delete Content</span></asp:LinkButton>
+      </div>
+    </div>
+  </nav>
+  <!-- Sidebar -->
+
+  <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"> </i>
+  </button>
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="dashboard.aspx">
+ <img
+              src="images/abs_nav.png"
+              class="circle"
+              height="37"
+              alt="Avatar"
+              loading="lazy"
+            />      </a>
+     
+
+      <!-- Right links -->
+      <ul class="navbar-nav ms-auto d-flex flex-row">
+        <!-- Notification dropdown -->
+       
+                
+        <!-- Avatar -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
+            href="profile.aspx"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+                runat="server"
+                id="profilepict"
+              src="~/images/img_avatar.png"
+              class="rounded-circle"
+              height="37"
+              alt="Avatar"
+              loading="lazy"
+            />
+          </a>
+        
+        </li>
+
+            <li class="nav-item dropdown">
+             <asp:LinkButton class="dropdown-item" id="logout" runat="server" onclick="logout_click" ><i class="fa fa-sign-out" style="font-size:30px;color:red; margin-top: 7px;"></i>
+</asp:LinkButton>
+</li>
+      </ul>
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+</aside>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main style="margin-top: 58px;">
+
+  <div class="container pt-4">
+               <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+  </div>
+</main>
+<!--Main layout-->
+
+                  </form>
+
+
+
+        <footer class="site-footer">
+
+                <p class="copyright-text">
+                    Copyright &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved <a href="abs.aspx">A B S</a> | Powered by <a href="http://www.numl.edu.pk/offices/itcon/">ITCON</a>
+ | Developed by
+                        <a href="http://hanannawaz.com/">Abdul Hanan</a>
+                </p>
+
+            </footer>
+
+
+
+
+</body>
+</html>
