@@ -1,0 +1,244 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.master.cs" Inherits="MedLearner.Dashboard" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+        <script src="https://checkout.stripe.com/checkout.js"></script>
+     <link rel="stylesheet" href="./css/master.css" type="text/css" />
+
+        <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+
+<!-- MDB -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css"
+/> 
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"
+></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+      <link href="css/style.css" rel="stylesheet">
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+</head>
+<body>
+    
+       <form id="form1" runat="server">
+
+
+        <!--Main Navigation-->
+<aside>
+  <!-- Sidebar -->
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar  bg-white">
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-2 mt-4">
+        <asp:LinkButton runat="server" id="btnDashboard"
+          href="dashboard.aspx"
+          class="list-group-item list-group-item-action py-2 ripple"
+          aria-current="true"
+        >
+          <i class="fas fa-tachometer-alt fa-fw me-3" ></i><span>Main dashboard</span>
+        </asp:LinkButton>
+
+            <asp:LinkButton runat="server" ID="btnCourses" href="Courses.aspx" class="list-group-item list-group-item-action py-2 ripple ">
+          <i class="fas fa-eye fa-fw me-3"></i><span>Courses</span>
+        </asp:LinkButton>
+
+                                           <asp:LinkButton runat="server" ID="btnExams" href="Exams.aspx" class="list-group-item list-group-item-action py-2 ripple ">
+          <i class="fas fa-eye fa-fw me-3"></i><span>Exams</span>
+        </asp:LinkButton>
+
+           <div class="dropdown">
+                            <button runat="server" class="btn btn-primary dropdown-toggle text-center list-group-item list-group-item-action py-2 ripple" type="button" id="btnCourse" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <i class="fas fa-add"></i> Add Course
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnCourse">
+
+
+        <asp:LinkButton runat="server" ID="btnAddCousre" href="addCourse.aspx" class="dropdown-item ">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add Course</span>
+        </asp:LinkButton>
+
+         <asp:LinkButton runat="server" ID="btnAddPrice" href="addPrice.aspx" class="dropdown-item">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add Price</span>
+        </asp:LinkButton>
+
+        <asp:LinkButton runat="server" ID="btnAddC" href="addContent.aspx" class="dropdown-item">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add Content</span>
+        </asp:LinkButton>
+
+         <asp:LinkButton runat="server" ID="btnAddDC" href="addDownloadable.aspx" class="dropdown-item ">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add Downloadable</span>
+        </asp:LinkButton>
+
+
+          <asp:LinkButton runat="server" ID="btnAddExam" href="addMockExam.aspx" class="dropdown-item ">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add Exam</span>
+        </asp:LinkButton>
+
+          <asp:LinkButton runat="server" ID="btnAddQuestion" href="addQuestion.aspx" class="dropdown-item">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add Question</span>
+        </asp:LinkButton>
+
+         <asp:LinkButton runat="server" ID="btnAddEmail" href="addEmail.aspx" class="dropdown-item ">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add Email</span>
+        </asp:LinkButton>
+
+                            </div>
+                        </div>
+
+
+           <div class="dropdown mt-2">
+                            <button runat="server" class="btn btn-primary dropdown-toggle text-center list-group-item list-group-item-action py-2 ripple" type="button" id="btnTag" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <i class="fas fa-add"></i> Add Tags
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnTag">
+
+
+        <asp:LinkButton runat="server" ID="LinkButton1" href="addTag.aspx" class="dropdown-item ">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add Parent Tag</span>
+        </asp:LinkButton>
+
+         <asp:LinkButton runat="server" ID="LinkButton2" href="addChildTag.aspx" class="dropdown-item">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add Child Tag</span>
+        </asp:LinkButton>
+
+                            </div>
+                        </div>
+
+           <div class="dropdown mt-2">
+                            <button runat="server" class="btn btn-primary dropdown-toggle text-center list-group-item list-group-item-action py-2 ripple" type="button" id="btnExam" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <i class="fas fa-add"></i> Add Exams
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnExam">
+
+
+        <asp:LinkButton runat="server" ID="LinkButton3" href="addMockExam.aspx" class="dropdown-item ">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add Exam</span>
+        </asp:LinkButton>
+
+         <asp:LinkButton runat="server" ID="LinkButton4" href="addQuestion.aspx" class="dropdown-item">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add Questions</span>
+        </asp:LinkButton>
+
+                            </div>
+                        </div>
+
+        
+
+                   <asp:LinkButton runat="server" ID="btnAddCategory" href="addCategory.aspx" class="list-group-item list-group-item-action py-2 ripple ">
+          <i class="fas fa-add fa-fw me-3"></i><span>Add Category</span>
+        </asp:LinkButton>
+
+          <asp:LinkButton runat="server" ID="btnUsers" href="allUsers.aspx" class="list-group-item list-group-item-action py-2 ripple ">
+          <i class="fas fa-eye fa-fw me-3"></i><span>View Users</span>
+        </asp:LinkButton>
+      </div>
+    </div>
+  </nav>
+  <!-- Sidebar -->
+
+  <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"> </i>
+  </button>
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="dashboard.aspx">
+        <h3 class="m-0 text-uppercase text-primary"><i class="fa fa-book-reader mr-3"></i>MedLearner</h3>
+      </a>
+     
+
+      <!-- Right links -->
+      <ul class="navbar-nav ms-auto d-flex flex-row">
+        <!-- Notification dropdown -->
+       
+                
+        <!-- Avatar -->
+        <div class="btn-group">
+  <button type="button" runat="server" id="btn_UserName" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+              <asp:LinkButton runat="server" ID="btnProfile" href="profile.aspx" class="dropdown-item ">
+          <i class="fas fa-user fa-fw me-3"></i><span>Profile</span>
+        </asp:LinkButton>
+
+         <asp:LinkButton runat="server" ID="btn_Logout" OnClick="btn_logout_Click" class="dropdown-item text-danger">
+          <i class="fas fa-sign-out fa-fw me-3"></i><span>Logout</span>
+        </asp:LinkButton>
+
+  </div>
+</div>
+      </ul>
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+</aside>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main style="margin-top: 58px;">
+
+  <div class=" pt-4">
+               <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+  </div>
+</main>
+<!--Main layout-->
+
+                  </form>
+
+
+
+        <footer class="site-footer">
+
+                <p class="copyright-text">
+                    Copyright &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved <a href="/LandingPages/home.aspx">MedLearner</a> 
+ | Developed by
+                        <a href="http://hanannawaz.com/">Abdul Hanan</a>
+                </p>
+
+            </footer>   
+
+</body>
+</html>
