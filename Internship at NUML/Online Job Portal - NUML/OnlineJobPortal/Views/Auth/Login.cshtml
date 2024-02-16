@@ -1,0 +1,56 @@
+﻿@model OnlineJobPortal.Models.JobGuestUsers
+
+@{
+    ViewBag.Title = "Login - Online Job Portal NUML";
+}
+
+@using (Html.BeginForm("Login", "Auth", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+        @{
+            var successMessage = TempData["SuccessMessage"] as string;
+            if (!string.IsNullOrEmpty(successMessage))
+            {
+                <div class="alert alert-primary" role="alert">
+                    @successMessage
+                </div>
+            }
+        }
+
+        <div class="card card-info mt-2">
+            <div class="card-header" style="background-color: deepskyblue;">
+                <h3 class="card-title">Login - Online Job Portal NUML</h3>
+            </div>
+        </div>
+
+       
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Email :</label>
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Password :</label>
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary site-btn flat-buttons">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

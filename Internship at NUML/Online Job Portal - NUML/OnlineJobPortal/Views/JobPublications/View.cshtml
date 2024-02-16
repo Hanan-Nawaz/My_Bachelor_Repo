@@ -1,0 +1,103 @@
+﻿@model OnlineJobPortal.Models.JobPublications
+
+@{
+    ViewBag.Title = "View Publication";
+}
+
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card card-info mt-2">
+        <div class="card-header" style="background-color: deepskyblue;">
+            <h3 class="card-title">View Publication</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Author Name :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.author_name, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Journal Name :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.journal_name, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Journal Address :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.journal_address, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">ISSN Number :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.issn_number, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Publication Title :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.publication_title, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Volume Number :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.vol_no, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Start Page :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.start_page, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">End Page :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.end_page, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">HEC Category :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.hec_category, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Published Year :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.published_year, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Impact Factor :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.impact_factor, new { @style = "color:black;" })
+        </div>
+    </div>
+
+</div>

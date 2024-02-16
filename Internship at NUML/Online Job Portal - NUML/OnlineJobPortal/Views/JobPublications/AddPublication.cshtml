@@ -1,0 +1,223 @@
+﻿@model  OnlineJobPortal.ViewModel.PublicationVM
+
+@{
+    ViewBag.Title = "Add Publications";
+}
+
+@{
+
+    var hec_category = new List<SelectListItem>
+{
+                        new SelectListItem { Value = "w", Text = "w" },
+                        new SelectListItem { Value = "x", Text = "x" },
+                        new SelectListItem { Value = "y", Text = "y" },
+                        new SelectListItem { Value = "z", Text = "z" },
+                        // Add more items as needed
+                       };
+
+    int currentYear = DateTime.Now.Year;
+
+    // Create a list to store SelectListItem objects
+    var published_year = new List<SelectListItem>();
+
+    // Loop through the years from 1990 to the current year + 1 and add them to the list
+    for (int year = 1990; year <= currentYear + 1; year++)
+    {
+        // Create a SelectListItem for the current year and add it to the list
+        published_year.Add(new SelectListItem { Value = year.ToString(), Text = year.ToString() });
+    }
+}
+
+@using (Html.BeginForm("AddPublication", "JobPublications", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+        @{
+            var successMessage = TempData["SuccessMessage"] as string;
+            if (successMessage != "")
+            {
+                <div class="alert alert-primary" role="alert">
+                    @successMessage
+                </div>
+            }
+        }
+
+        <div class="card card-info mt-2">
+            <div class="card-header" style="background-color: deepskyblue;">
+                <h3 class="card-title">Add Publications</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Author Name :</label>
+                    @Html.ValidationMessageFor(m => m.jobPublication.author_name, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPublication.author_name, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Journal Name :</label>
+                    @Html.ValidationMessageFor(m => m.jobPublication.journal_name, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPublication.journal_name, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Journal Address :</label>
+                    @Html.ValidationMessageFor(m => m.jobPublication.journal_address, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPublication.journal_address, new { @class = "form-control", rows = 4 })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">ISSN Number :</label>
+                    @Html.ValidationMessageFor(m => m.jobPublication.issn_number, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPublication.issn_number, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Publication Title :</label>
+                    @Html.ValidationMessageFor(m => m.jobPublication.publication_title, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPublication.publication_title, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Volume Number :</label>
+                    @Html.ValidationMessageFor(m => m.jobPublication.vol_no, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPublication.vol_no, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Start Page :</label>
+                    @Html.ValidationMessageFor(m => m.jobPublication.start_page, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPublication.start_page, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">End Page :</label>
+                    @Html.ValidationMessageFor(m => m.jobPublication.end_page, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPublication.end_page, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">HEC Category :</label>
+                    @Html.ValidationMessageFor(m => m.jobPublication.hec_category, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(x => x.jobPublication.hec_category, hec_category, "Select Hec Category", new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Published Year :</label>
+                    @Html.ValidationMessageFor(m => m.jobPublication.published_year, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(x => x.jobPublication.published_year, published_year, "Select Published Year", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Impact Factor :</label>
+                    @Html.ValidationMessageFor(m => m.jobPublication.impact_factor, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPublication.impact_factor, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary site-btn flat-buttons">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            }
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Added All Publications</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive" style="padding: 0px;">
+        <table id="experiencInfo" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Journal Name</th>
+                    <th>Author Name</th>
+                    <th>Journal Address</th>
+                    <th>ISSN Number</th>
+                    <th>Title Publications</th>
+                    <th>Hec category</th>
+                    <th>Year Published</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.existingPublications != null) { 
+
+                    foreach (var item in Model.existingPublications)
+                    {
+                        <tr>
+                            <td>@item.journal_name</td>
+                            <td>@item.author_name</td>
+                            <td>@item.journal_address</td>
+                            <td>
+                                @item.issn_number
+
+                            </td>
+                            <td>@item.publication_title</td>
+                            <td>@item.hec_category</td>
+                            <td>
+                                @item.published_year
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "View", new { Controller = "JobPublications", id = item.publication_id }, new { @class = "fa fa-eye", target = "_blank" })
+                                @Html.ActionLink(" ", "Edit", new { Controller = "JobPublications", id = item.publication_id }, new { @class = "fa fa-pencil", target = "_blank" })
+                                @using (Html.BeginForm("DeleteConfirmed", "JobPublications", new { id = item.publication_id }, FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to delete this job?');" }))
+                                {
+                                    <button type="submit" class="fa fa-trash text-danger" style="background: none; border: none;"></button>
+                                    @Html.AntiForgeryToken()
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                <p>No publications found.</p>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

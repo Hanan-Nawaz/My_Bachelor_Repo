@@ -1,0 +1,159 @@
+﻿@model  OnlineJobPortal.Models.JobPublications
+
+@{
+    ViewBag.Title = "Edit Publications";
+}
+
+@{
+
+    var hec_category = new List<SelectListItem>
+{
+                        new SelectListItem { Value = "w", Text = "w" },
+                        new SelectListItem { Value = "x", Text = "x" },
+                        new SelectListItem { Value = "y", Text = "y" },
+                        new SelectListItem { Value = "z", Text = "z" },
+                        // Add more items as needed
+                       };
+
+    int currentYear = DateTime.Now.Year;
+
+    // Create a list to store SelectListItem objects
+    var published_year = new List<SelectListItem>();
+
+    // Loop through the years from 1990 to the current year + 1 and add them to the list
+    for (int year = 1990; year <= currentYear + 1; year++)
+    {
+        // Create a SelectListItem for the current year and add it to the list
+        published_year.Add(new SelectListItem { Value = year.ToString(), Text = year.ToString() });
+    }
+}
+
+@using (Html.BeginForm("Edit", "JobPublications", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" name="publication_id" value="@Model.publication_id" />
+
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+        @{
+            var successMessage = TempData["SuccessMessage"] as string;
+            if (successMessage != "")
+            {
+                <div class="alert alert-primary" role="alert">
+                    @successMessage
+                </div>
+            }
+        }
+
+        <div class="card card-info mt-2">
+            <div class="card-header" style="background-color: deepskyblue;">
+                <h3 class="card-title">Add Publications</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Author Name :</label>
+                    @Html.ValidationMessageFor(m => m.author_name, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.author_name, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Journal Name :</label>
+                    @Html.ValidationMessageFor(m => m.journal_name, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.journal_name, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Journal Address :</label>
+                    @Html.ValidationMessageFor(m => m.journal_address, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.journal_address, new { @class = "form-control", rows = 4 })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">ISSN Number :</label>
+                    @Html.ValidationMessageFor(m => m.issn_number, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.issn_number, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Publication Title :</label>
+                    @Html.ValidationMessageFor(m => m.publication_title, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.publication_title, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Volume Number :</label>
+                    @Html.ValidationMessageFor(m => m.vol_no, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.vol_no, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Start Page :</label>
+                    @Html.ValidationMessageFor(m => m.start_page, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.start_page, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">End Page :</label>
+                    @Html.ValidationMessageFor(m => m.end_page, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.end_page, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">HEC Category :</label>
+                    @Html.ValidationMessageFor(m => m.hec_category, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(x => x.hec_category, hec_category, "Select Hec category", new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Published Year :</label>
+                    @Html.ValidationMessageFor(m => m.published_year, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(x => x.published_year, published_year, "Select Published Year", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Impact Factor :</label>
+                    @Html.ValidationMessageFor(m => m.impact_factor, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.impact_factor, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary site-btn flat-buttons">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
