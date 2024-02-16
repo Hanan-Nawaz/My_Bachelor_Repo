@@ -12,6 +12,9 @@ namespace OnlineJobPortal.DbContect
         public context() : base("dbcon") { }
 
         public DbSet<JobAds> JobsAds { get; set; }
-       
+        public DbSet<JobPublications> JobPublications { get; set; }
+        public DbSet<GuestUserToken> userToken { get; set; }
+        public DbSet<JobGuestUsers> userinfo { get; set; }
+
     }
 }
