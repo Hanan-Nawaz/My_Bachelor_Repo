@@ -7,13 +7,13 @@ namespace OnlineJobPortal.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class jobadschangedagain : IMigrationMetadata
+    public sealed partial class PostandPrePhdexpandpapersadded : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(jobadschangedagain));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PostandPrePhdexpandpapersadded));
         
         string IMigrationMetadata.Id
         {
-            get { return "202311221842222_job ads changed again"; }
+            get { return "202402250947107_Post and Pre Phd exp and papers added"; }
         }
         
         string IMigrationMetadata.Source
