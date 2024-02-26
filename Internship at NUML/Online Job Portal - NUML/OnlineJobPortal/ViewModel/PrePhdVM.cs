@@ -6,9 +6,9 @@ using System.Web;
 
 namespace OnlineJobPortal.ViewModel
 {
-    public class JobVM
+    public class PrePhdVM
     {
-        public IEnumerable<JobAds> existingAds { get; set; }
-        public JobAds jobAds { get; set; }
+        public IEnumerable<JobPrePhdExp> existingPreExp { get; set; }
+        public JobPrePhdExp jobPrePhdExp { get; set; }
     }
 }
