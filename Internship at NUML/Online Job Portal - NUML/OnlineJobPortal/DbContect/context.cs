@@ -15,6 +15,9 @@ namespace OnlineJobPortal.DbContect
         public DbSet<JobPublications> JobPublications { get; set; }
         public DbSet<GuestUserToken> userToken { get; set; }
         public DbSet<JobGuestUsers> userinfo { get; set; }
+        public DbSet<JobPostPhdExp> postPhdExps { get; set; }
+        public DbSet<JobPrePhdExp> prePhdExps { get; set; }
+        public DbSet<JobPaperhecJournals> jobPaperhecJournals { get; set; }
 
     }
 }
