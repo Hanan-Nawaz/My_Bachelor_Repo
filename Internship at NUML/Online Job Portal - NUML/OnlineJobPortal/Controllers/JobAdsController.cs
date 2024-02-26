@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -36,7 +37,8 @@ namespace OnlineJobPortal.Controllers
         // GET: JobAds/Create
         public ActionResult AddJob()
         {
-            IEnumerable<JobAds> existingAds = db.JobsAds.ToList();
+            IEnumerable<JobAds> existingAds = db.JobsAds.OrderByDescending(job => job.job_id).ToList();
+
             JobVM viewModel = new JobVM
             {
                 existingAds = existingAds,
@@ -45,6 +47,20 @@ namespace OnlineJobPortal.Controllers
                     job_advertisment = "just to avoid error"
                 }
             };
+
+
+
+            if (TempData["SuccessMessage"] != null)
+            {
+                ViewBag.SucessMessage = TempData["SuccessMessage"].ToString();
+                ViewBag.alertMessage = "";
+            }
+            else
+            {
+                ViewBag.SucessMessage = "";
+                ViewBag.alertMessage = "";
+
+            }
 
             return View(viewModel);
         }
@@ -57,27 +73,39 @@ namespace OnlineJobPortal.Controllers
         {
             viewModel.existingAds = db.JobsAds.ToList(); // Retrieve existing job ads again if needed
             viewModel.jobAds.job_advertisment = " ";
-            if (file != null)
+
+            if(viewModel.jobAds.job_type == "regular" && viewModel.jobAds.is_job_processing_fee == 0)
             {
-                if (file != null && file.ContentLength > 0)
-                {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Advertisements"), fileName);
-                    file.SaveAs(path);
-
-                    // Store the file path in the database
-                    viewModel.jobAds.job_advertisment = "/Advertisements/" + fileName; // Save relative path
-                }
-
-                // Add the received jobAds model to the database context
-                db.JobsAds.Add(viewModel.jobAds);
-
-                // Save changes to the database
-                db.SaveChanges();
-
-                // Redirect to a different action after successful addition
-                return RedirectToAction("AddJob"); // Replace "SuccessAction" with your action name
+                TempData["SuccessMessage"] = "Error! Please enter processing fee.";
+                return View(viewModel);
             }
+            else
+            {
+                if (file != null)
+                {
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Advertisements"), fileName);
+                        file.SaveAs(path);
+
+                        // Store the file path in the database
+                        viewModel.jobAds.job_advertisment = "/Advertisements/" + fileName; // Save relative path
+                    }
+
+                    // Add the received jobAds model to the database context
+                    db.JobsAds.Add(viewModel.jobAds);
+
+                    // Save changes to the database
+                    db.SaveChanges();
+
+                    // Redirect to a different action after successful addition
+                    TempData["SuccessMessage"] = "Job added successfully.";
+                    return RedirectToAction("AddJob"); // Replace "SuccessAction" with your action name
+                }
+            }
+
+            
 
             // If ModelState is not valid, reload the view with the received JobVM model to show validation errors
             return View(viewModel);
@@ -103,11 +131,13 @@ namespace OnlineJobPortal.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, JobAds jobAds, HttpPostedFileBase file)
+        public ActionResult Edit(int id, string ad, JobAds jobAds, HttpPostedFileBase file)
         {
-            jobAds.job_id = id;
-            if (file != null)
+
+            try
             {
+                // Your code where you save changes to the database using Entity Framework
+                jobAds.job_id = id;
                 if (file != null && file.ContentLength > 0)
                 {
                     var fileName = Path.GetFileName(file.FileName);
@@ -117,22 +147,41 @@ namespace OnlineJobPortal.Controllers
                     // Store the file path in the database
                     jobAds.job_advertisment = "/Advertisements/" + fileName; // Save relative path
                 }
+                else
+                {
+                    jobAds.job_advertisment = ad;
+                }
 
                 // Add the received jobAds model to the database context
                 db.Entry(jobAds).State = EntityState.Modified;
 
                 // Save changes to the database
-                
-                    db.SaveChanges();
-                
 
+                db.SaveChanges();
+
+
+                TempData["SuccessMessage"] = "Job updated successfully.";
 
                 // Redirect to a different action after successful addition
                 return RedirectToAction("AddJob"); // Replace "SuccessAction" with your action name
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var validationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Console.WriteLine(
+                            $"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+                        // Log or handle the validation error messages as needed
+                    }
+                }
+                // Handle the exception or throw it again if needed
+                // throw;
             }
 
-            // If ModelState is not valid, reload the view with the received JobVM model to show validation errors
-           
+
             return View(jobAds);
         }
 
@@ -150,6 +199,7 @@ namespace OnlineJobPortal.Controllers
 
             db.JobsAds.Remove(job);
             db.SaveChanges();
+            TempData["SuccessMessage"] = "Job deleted successfully.";
 
             return RedirectToAction("AddJob"); // Redirect to list view after deletion
         }

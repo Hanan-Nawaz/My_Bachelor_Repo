@@ -40,7 +40,7 @@ namespace OnlineJobPortal.Controllers
                     guestUserToken.AuthToken = userToken + jobGuestUsers.GuestID;
                     guestUserToken.IssuedOn = DateTime.Now;
                     guestUserToken.UserID = jobGuestUsers.GuestID.ToString();
-                    guestUserToken.ExpiresOn = DateTime.Now.AddMinutes(30);
+                    guestUserToken.ExpiresOn = DateTime.Now.AddMinutes(1);
 
                     db.userToken.Add(guestUserToken);
                     int rowsAffected = db.SaveChanges();
@@ -107,7 +107,7 @@ namespace OnlineJobPortal.Controllers
                 guestUserTokens.AuthToken = userToken + loggedInUser.GuestID;
                 guestUserTokens.IssuedOn = DateTime.Now;
                 guestUserTokens.UserID = loggedInUser.GuestID.ToString();
-                guestUserTokens.ExpiresOn = DateTime.Now.AddMinutes(30);
+                guestUserTokens.ExpiresOn = DateTime.Now.AddMinutes(1);
 
                 db.userToken.Add(guestUserTokens);
                 int rowsAffected = db.SaveChanges();
@@ -147,14 +147,14 @@ namespace OnlineJobPortal.Controllers
 
                     if (guestUserToken.ExpiresOn > DateTime.Now)
                     {
-                        guestUserToken.ExpiresOn = guestUserToken.ExpiresOn.AddMinutes(30);
+                        guestUserToken.ExpiresOn = guestUserToken.ExpiresOn.AddMinutes(1);
                         db.SaveChanges();
                         return null;
 
                     }
                     else
                     {
-                        guestUserToken.ExpiresOn = guestUserToken.ExpiresOn.AddMinutes(30);
+                        guestUserToken.ExpiresOn = guestUserToken.ExpiresOn.AddMinutes(1);
                         db.SaveChanges();
                         return null;
                     }
