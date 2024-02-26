@@ -1,0 +1,77 @@
+﻿@model OnlineJobPortal.Models.JobPaperhecJournals
+
+@{
+    ViewBag.Title = "View HEC Journals Data";
+}
+
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card card-info mt-2">
+        <div class="card-header" style="background-color: deepskyblue;">
+            <h3 class="card-title">View HEC Journals Data</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">W Paper :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.w_paper, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">X Paper :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.x_paper, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Y Paper :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.y_paper, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Z Paper :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.z_paper, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Total :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.total, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Last 5 Years :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.last_5_years, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Total HEC Approved :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.total_hec_approved, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Total HEC Not Approved :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.total_hec_not_approved, new { @style = "color:black;" })
+        </div>
+    </div>
+</div>

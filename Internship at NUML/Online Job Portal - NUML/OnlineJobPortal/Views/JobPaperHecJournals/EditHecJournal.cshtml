@@ -1,0 +1,134 @@
+﻿@model OnlineJobPortal.Models.JobPaperhecJournals
+
+@{
+    ViewBag.Title = "Edit HEC Journals Data";
+}
+
+<script>
+    $(document).ready(function () {
+        $('#w_paper, #x_paper, #y_paper, #z_paper').change(function () {
+            var w = parseFloat($('#w_paper').val()) || 0;
+            var x = parseFloat($('#x_paper').val()) || 0;
+            var y = parseFloat($('#y_paper').val()) || 0;
+            var z = parseFloat($('#z_paper').val()) || 0;
+
+            // Calculate the total
+            var total = w + x + y + z;
+
+            // Update the total field
+            $('#total').val(total);
+        });
+    });
+
+    function calculateTotal() {
+        var w = parseInt($('#w_paper').val()) || 0;
+        var x = parseInt($('#x_paper').val()) || 0;
+        var y = parseInt($('#y_paper').val()) || 0;
+        var z = parseInt($('#z_paper').val()) || 0;
+
+        var total = w + x + y + z;
+        $('#total').val(total);
+    }
+</script>
+
+@using (Html.BeginForm("EditHecJournal", "JobPaperHecJournals", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" name="id" value="@Model.id" />
+
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        @{
+            var successMessage = TempData["SuccessMessage"] as string;
+            if (successMessage != "")
+            {
+                <div class="alert alert-primary" role="alert">
+                    @successMessage
+                </div>
+            }
+        }
+
+        <div class="card card-info mt-2">
+            <div class="card-header" style="background-color: deepskyblue;">
+                <h3 class="card-title">Edit HEC Journals Data</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">W Paper:</label>
+                    @Html.ValidationMessageFor(m => m.w_paper, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.w_paper, new { @class = "form-control", onchange = "calculateTotal();" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">X Paper:</label>
+                    @Html.ValidationMessageFor(m => m.x_paper, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.x_paper, new { @class = "form-control", onchange = "calculateTotal();" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Y Paper:</label>
+                    @Html.ValidationMessageFor(m => m.y_paper, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.y_paper, new { @class = "form-control", onchange = "calculateTotal();" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Z Paper:</label>
+                    @Html.ValidationMessageFor(m => m.z_paper, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.z_paper, new { @class = "form-control", onchange = "calculateTotal();" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Total :</label>
+                    @Html.ValidationMessageFor(m => m.total, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.total, new { @class = "form-control", @readonly = "readonly", id = "total" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Last 5 Years :</label>
+                    @Html.ValidationMessageFor(m => m.last_5_years, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.last_5_years, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Total HEC Approved :</label>
+                    @Html.ValidationMessageFor(m => m.total_hec_approved, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.total_hec_approved, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Total HEC Not Approved :</label>
+                    @Html.ValidationMessageFor(m => m.total_hec_not_approved, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.total_hec_not_approved, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary site-btn flat-buttons">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

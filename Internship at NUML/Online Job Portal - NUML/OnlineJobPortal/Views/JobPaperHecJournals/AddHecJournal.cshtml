@@ -1,0 +1,169 @@
+﻿@model OnlineJobPortal.ViewModel.HecJournalsVM
+
+@{
+    ViewBag.Title = "Add HEC Journals Data";
+}
+
+@using (Html.BeginForm("AddHecJournal", "JobpaperHecJournals", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+        @{
+            var successMessage = TempData["SuccessMessage"] as string;
+            if (successMessage != "")
+            {
+                <div class="alert alert-primary" role="alert">
+                    @successMessage
+                </div>
+            }
+        }
+
+        <div class="card card-info mt-2">
+            <div class="card-header" style="background-color: deepskyblue;">
+                <h3 class="card-title">Add HEC Journals Data</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">W Paper:</label>
+                    @Html.ValidationMessageFor(m => m.jobPaperhecJournals.w_paper, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPaperhecJournals.w_paper, new { @class = "form-control", onchange = "calculateTotal();" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">X Paper:</label>
+                    @Html.ValidationMessageFor(m => m.jobPaperhecJournals.x_paper, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPaperhecJournals.x_paper, new { @class = "form-control", onchange = "calculateTotal();" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Y Paper:</label>
+                    @Html.ValidationMessageFor(m => m.jobPaperhecJournals.y_paper, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPaperhecJournals.y_paper, new { @class = "form-control", onchange = "calculateTotal();" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Z Paper:</label>
+                    @Html.ValidationMessageFor(m => m.jobPaperhecJournals.z_paper, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPaperhecJournals.z_paper, new { @class = "form-control", onchange = "calculateTotal();" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Total:</label>
+                    @Html.ValidationMessageFor(m => m.jobPaperhecJournals.total, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPaperhecJournals.total, new { @class = "form-control", id = "total", @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Last 5 Years:</label>
+                    @Html.ValidationMessageFor(m => m.jobPaperhecJournals.last_5_years, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPaperhecJournals.last_5_years, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Total HEC Approved:</label>
+                    @Html.ValidationMessageFor(m => m.jobPaperhecJournals.total_hec_approved, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPaperhecJournals.total_hec_approved, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="color: #17a2b8;">Total HEC Not Approved:</label>
+                    @Html.ValidationMessageFor(m => m.jobPaperhecJournals.total_hec_not_approved, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.jobPaperhecJournals.total_hec_not_approved, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary site-btn flat-buttons">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Added HEC Journals Data</h3>
+    </div>
+    <div class="card-body table-responsive" style="padding: 0px;">
+        <table id="journalsInfo" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>W Paper</th>
+                    <th>X Paper</th>
+                    <th>Y Paper</th>
+                    <th>Z Paper</th>
+                    <th>Total</th>
+                    <th>Last 5 Years</th>
+                    <th>Total HEC Approved</th>
+                    <th>Total HEC Not Approved</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.existingPapers)
+                                {
+                <tr>
+                    <td>@item.w_paper</td>
+                    <td>@item.x_paper</td>
+                    <td>@item.y_paper</td>
+                    <td>@item.z_paper</td>
+                    <td>@item.total</td>
+                    <td>@item.last_5_years</td>
+                    <td>@item.total_hec_approved</td>
+                    <td>@item.total_hec_not_approved</td>
+                    <td>
+                        @Html.ActionLink(" ", "ViewHecJournal", new { Controller = "JobpaperHecJournals", id = item.id }, new { @class = "fa fa-eye", target = "_blank" })
+                        @Html.ActionLink(" ", "EditHecJournal", new { Controller = "JobpaperHecJournals", id = item.id }, new { @class = "fa fa-pencil", target = "_blank" })
+                        @using (Html.BeginForm("DeleteConfirmed", "JobpaperHecJournals", new { id = item.id }, FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to delete this data?');" }))
+{
+                            <button type="submit" class="fa fa-trash text-danger" style="background: none; border: none;"></button>
+                            @Html.AntiForgeryToken()
+}
+                    </td>
+                </tr>
+                                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        function calculateTotal() {
+            var w = parseInt($('#jobPaperhecJournals_w_paper').val()) || 0;
+            var x = parseInt($('#jobPaperhecJournals_x_paper').val()) || 0;
+            var y = parseInt($('#jobPaperhecJournals_y_paper').val()) || 0;
+            var z = parseInt($('#jobPaperhecJournals_z_paper').val()) || 0;
+
+            var total = w + x + y + z;
+            $('#total').val(total);
+        }
+    </script>
+}

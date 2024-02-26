@@ -1,0 +1,179 @@
+﻿@model  OnlineJobPortal.ViewModel.PostPhdVM
+
+@{
+    ViewBag.Title = "Add Post Phd Experience";
+}
+
+@{
+    var status = new List<SelectListItem>
+{
+ new SelectListItem { Value = "Regular", Text = "Regular" },
+ new SelectListItem { Value = "Contract", Text = "Contract" },
+ new SelectListItem { Value = "Visiting", Text = "Visiting" },
+        // Add more items as needed
+    };
+}
+
+
+@using (Html.BeginForm("AddPostPhdExp", "JobPostPhdExp", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+    @{
+        var successMessage = TempData["SuccessMessage"] as string;
+        if (successMessage != "")
+        {
+            <div class="alert alert-primary" role="alert">
+                @successMessage
+            </div>
+        }
+
+    }
+
+
+    <div class="card card-info mt-2">
+        <div class="card-header" style="background-color: deepskyblue;">
+            <h3 class="card-title">Add Post Phd Experience</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="color: #17a2b8;">Job Institute :</label>
+                @Html.ValidationMessageFor(m => m.jobPostPhdExp.institute, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.jobPostPhdExp.institute, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="color: #17a2b8;">Position Held :</label>
+                @Html.ValidationMessageFor(m => m.jobPostPhdExp.position_held, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.jobPostPhdExp.position_held, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="color: #17a2b8;">Job Status :</label>
+                @Html.ValidationMessageFor(m => m.jobPostPhdExp.status, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(x => x.jobPostPhdExp.status, status, "Select Job Status", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="color: #17a2b8;">Period From :</label>
+                @Html.ValidationMessageFor(m => m.jobPostPhdExp.period_from, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.jobPostPhdExp.period_from, new { type = "date", @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="color: #17a2b8;">Period To :</label>
+                @Html.ValidationMessageFor(m => m.jobPostPhdExp.period_to, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.jobPostPhdExp.period_to, new { type = "date", @class = "form-control" })
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="color: #17a2b8;">Experience Years :</label>
+                @Html.ValidationMessageFor(m => m.jobPostPhdExp.exp_year, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.jobPostPhdExp.exp_year, new {@class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="color: #17a2b8;">Experience Months :</label>
+                @Html.ValidationMessageFor(m => m.jobPostPhdExp.exp_month, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.jobPostPhdExp.exp_month, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+       
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary site-btn flat-buttons">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Added All Experience</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive" style="padding: 0px;">
+        <table id="experiencInfo" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Institute</th>
+                    <th>Position Held</th>
+                    <th>Job Status</th>
+                    <th>Period From</th>
+                    <th>Period To</th>
+                    <th>Experience Years</th>
+                    <th>Experience To</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.existingPostExp)
+                {
+                    var formattedDate = item.period_from.ToString("MM/dd/yyyy");
+                    var formattedDateTo = item.period_to.ToString("MM/dd/yyyy");
+                    <tr>
+                        <td>@item.institute</td>
+                        <td>@item.position_held</td>
+                        <td>@item.status</td>
+                        <td>
+                            @formattedDate
+
+                        </td>
+                        <td>
+                            @formattedDateTo
+
+                        </td>
+                        <td>@item.exp_year</td>
+                        <td>@item.exp_month</td>
+                        <td>
+                            @Html.ActionLink(" ", "ViewPostPhdExp", new { Controller = "JobPostPhdExp", id = item.id }, new { @class = "fa fa-eye", target = "_blank" })
+                            @Html.ActionLink(" ", "EditPostPhdExp", new { Controller = "JobPostPhdExp", id = item.id }, new { @class = "fa fa-pencil", target = "_blank" })
+                            @using (Html.BeginForm("DeleteConfirmed", "JobPostPhdExp", new { id = item.id }, FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to delete this Experinece?');" }))
+                            {
+                                <button type="submit" class="fa fa-trash text-danger" style="background: none; border: none;"></button>
+                                @Html.AntiForgeryToken()
+                            }
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

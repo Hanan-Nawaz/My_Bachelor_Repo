@@ -1,0 +1,70 @@
+﻿@model OnlineJobPortal.Models.JobPrePhdExp
+
+@{
+    ViewBag.Title = "View Job Pre Phd Experience";
+}
+
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card card-info mt-2">
+        <div class="card-header" style="background-color: deepskyblue;">
+            <h3 class="card-title">View Job Post Phd Experience</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Institute :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.institute, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Position Held :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.position_held, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Status :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.status, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Period From :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.period_from, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Period To :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.period_to, new { @style = "color:black;" })
+        </div>
+
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Experience Years :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.exp_year, new { @style = "color:black;" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="margin-top: 20px;">
+            <label style="color: #17a2b8;">Experience Months :</label>
+        </div>
+        <div class="col-md-3" style="color: black; margin-top: 20px; font-size: 18px;">
+            @Html.DisplayFor(m => m.exp_month, new { @style = "color:black;" })
+        </div>
+    </div>
+</div>
